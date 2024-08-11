@@ -1,0 +1,30 @@
+.container{
+    position: relative;
+    margin-top: -79.8px;
+    z-index: 0;
+}
+.genreName{
+    margin-left: 30px;
+}
+.seeallBtn{
+    margin-right: 30px;
+    opacity: 0.5;
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+    /* align-self: center; */
+}
+
+.seeallBtn:hover{
+    opacity: 1;
+    cursor: pointer;
+    
+}
+.titleBar{
+   
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
