@@ -117,12 +117,12 @@ const Layout = () => {
           </div>
           <ul className="hamburgerMenuList">
             <li>
-              <NavLink className="navLink" to="#">
+              <NavLink className="navLink" to="/user/account" onClick={setMenuClose}>
                 Account
               </NavLink>
             </li>
             <li>
-              <NavLink className="navLink" to="/">
+              <NavLink className="navLink" to="/user/home" onClick={setMenuClose}>
                 Home
               </NavLink>
             </li>

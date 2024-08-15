@@ -4,11 +4,10 @@ import "slick-carousel/slick/slick-theme.css";
 import GenericCarousel from "../components/GenericCarousel";
 import demoCarousel from "../components/peakpx.jpg";
 import "./Home.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
-
   const [comedy, setComedy] = useState(null); // State to hold fetched data
   const [scifi, setScifi] = useState(null); // State to hold fetched data
   const [awardwinning, setAwardwinning] = useState(null); // State to hold fetched data
@@ -24,33 +23,18 @@ const Home = () => {
   const [adventure, setAdventure] = useState(null); // State to hold fetched data
   const [documentary, setDocumentary] = useState(null); // State to hold fetched data
 
-
   const [loading, setLoading] = useState(true); // State to track loading status
   const [error, setError] = useState(null); // State to hold error information
-
+  const navigate = useNavigate();
   useEffect(() => {
     // Define an asynchronous function to fetch data
     const fetchData = async () => {
       try {
         //---------------------------------------------------------authentication----------------------------
-        const baseServerUrl=`https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}`;
-        
-        // const login = await fetch(`${baseServerUrl}/clientlogin/`, {
-        //   credentials: "include",
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json", // Specify the content type
-        //   },
-        //   body: JSON.stringify({
-        //     username: "pritamroy",
-        //     password: "Unique@23",
-        //   }),
-        // });
-        // console.log(login);
-        //----------------------------------------------authentication------------------------------------------
+        const baseServerUrl = `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}`;
 
         //-----------------------------------------------comedy--------------------------------------------
-        const comedyResponse = await fetch(
+        const comedyResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/comedy/`,
           {
             credentials: "include",
@@ -59,15 +43,10 @@ const Home = () => {
             },
           }
         );
-        if (!comedyResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonComedy = await comedyResponse.json();
-        setComedy(jsonComedy);
         //----------------------------------comedy-----------------------------------------------------
 
-         //-----------------------------------------------romance--------------------------------------------
-         const romanceResponse = await fetch(
+        //-----------------------------------------------romance--------------------------------------------
+        const romanceResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/romance/`,
           {
             credentials: "include",
@@ -76,15 +55,11 @@ const Home = () => {
             },
           }
         );
-        if (!romanceResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonRomance = await romanceResponse.json();
-        setRomance(jsonRomance);
+
         //----------------------------------romance-----------------------------------------------------
 
-         //-----------------------------------------------war--------------------------------------------
-         const warResponse = await fetch(
+        //-----------------------------------------------war--------------------------------------------
+        const warResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/war/`,
           {
             credentials: "include",
@@ -93,15 +68,10 @@ const Home = () => {
             },
           }
         );
-        if (!warResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonWar = await warResponse.json();
-        setWar(jsonWar);
         //----------------------------------war-----------------------------------------------------
 
-         //-----------------------------------------------thriller--------------------------------------------
-         const thrillerResponse = await fetch(
+        //-----------------------------------------------thriller--------------------------------------------
+        const thrillerResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/thriller/`,
           {
             credentials: "include",
@@ -110,15 +80,11 @@ const Home = () => {
             },
           }
         );
-        if (!thrillerResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonThriller = await thrillerResponse.json();
-        setThriller(jsonThriller);
+
         //----------------------------------thriller-----------------------------------------------------
 
-         //-----------------------------------------------fantasy--------------------------------------------
-         const fantasyResponse = await fetch(
+        //-----------------------------------------------fantasy--------------------------------------------
+        const fantasyResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/fantasy/`,
           {
             credentials: "include",
@@ -127,15 +93,11 @@ const Home = () => {
             },
           }
         );
-        if (!fantasyResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonFantasy = await fantasyResponse.json();
-        setFantasy(jsonFantasy);
+
         //----------------------------------fantasy-----------------------------------------------------
 
-         //-----------------------------------------------horror--------------------------------------------
-         const horrorResponse = await fetch(
+        //-----------------------------------------------horror--------------------------------------------
+        const horrorResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/horror/`,
           {
             credentials: "include",
@@ -144,15 +106,11 @@ const Home = () => {
             },
           }
         );
-        if (!horrorResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonHorror = await horrorResponse.json();
-        setHorror(jsonHorror);
+
         //----------------------------------horror-----------------------------------------------------
 
-         //-----------------------------------------------action--------------------------------------------
-         const actionResponse = await fetch(
+        //-----------------------------------------------action--------------------------------------------
+        const actionResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/action/`,
           {
             credentials: "include",
@@ -161,15 +119,11 @@ const Home = () => {
             },
           }
         );
-        if (!actionResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonAction = await actionResponse.json();
-        setAction(jsonAction);
+
         //----------------------------------action-----------------------------------------------------
 
-         //-----------------------------------------------adventure--------------------------------------------
-         const adventureResponse = await fetch(
+        //-----------------------------------------------adventure--------------------------------------------
+        const adventureResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/adventure/`,
           {
             credentials: "include",
@@ -178,15 +132,11 @@ const Home = () => {
             },
           }
         );
-        if (!adventureResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonAdventure = await adventureResponse.json();
-        setAdventure(jsonAdventure);
+
         //----------------------------------adventure-----------------------------------------------------
 
-         //-----------------------------------------------mystery--------------------------------------------
-         const mysteryResponse = await fetch(
+        //-----------------------------------------------mystery--------------------------------------------
+        const mysteryResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/mystery/`,
           {
             credentials: "include",
@@ -195,15 +145,11 @@ const Home = () => {
             },
           }
         );
-        if (!mysteryResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonMystery = await mysteryResponse.json();
-        setMystery(jsonMystery);
+
         //----------------------------------mystery-----------------------------------------------------
 
-         //-----------------------------------------------documentary--------------------------------------------
-         const documentaryResponse = await fetch(
+        //-----------------------------------------------documentary--------------------------------------------
+        const documentaryResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/documentary/`,
           {
             credentials: "include",
@@ -212,15 +158,11 @@ const Home = () => {
             },
           }
         );
-        if (!documentaryResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonDocumentary = await documentaryResponse.json();
-        setDocumentary(jsonDocumentary);
+
         //----------------------------------documentary-----------------------------------------------------
 
-         //-----------------------------------------------biography--------------------------------------------
-         const biographyResponse = await fetch(
+        //-----------------------------------------------biography--------------------------------------------
+        const biographyResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/biography/`,
           {
             credentials: "include",
@@ -229,15 +171,11 @@ const Home = () => {
             },
           }
         );
-        if (!biographyResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonBiography = await biographyResponse.json();
-        setBiography(jsonBiography);
+
         //----------------------------------biography-----------------------------------------------------
 
-         //-----------------------------------------------drama--------------------------------------------
-         const dramaResponse = await fetch(
+        //-----------------------------------------------drama--------------------------------------------
+        const dramaResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/drama/`,
           {
             credentials: "include",
@@ -246,15 +184,11 @@ const Home = () => {
             },
           }
         );
-        if (!dramaResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonDrama = await dramaResponse.json();
-        setDrama(jsonDrama);
+
         //----------------------------------drama-----------------------------------------------------
 
-         //-----------------------------------------------award-winning--------------------------------------------
-         const awardwinningResponse = await fetch(
+        //-----------------------------------------------award-winning--------------------------------------------
+        const awardwinningResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/awardwinning/`,
           {
             credentials: "include",
@@ -263,15 +197,11 @@ const Home = () => {
             },
           }
         );
-        if (!awardwinningResponse.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const jsonAwardwinning = await awardwinningResponse.json();
-        setAwardwinning(jsonAwardwinning);
+
         //----------------------------------award-winning-----------------------------------------------------
 
         //-----------------------------------------------scifi--------------------------------------------
-        const scifiResponse = await fetch(
+        const scifiResponse = fetch(
           `${baseServerUrl}/protected-route/moviedetails/scifi/`,
           {
             credentials: "include",
@@ -280,21 +210,68 @@ const Home = () => {
             },
           }
         );
-        if (!scifiResponse.ok) {
-          throw new Error("Network response was not ok");
+        const fetchedData = await Promise.all([
+          comedyResponse,
+          romanceResponse,
+          warResponse,
+          thrillerResponse,
+          fantasyResponse,
+          horrorResponse,
+          actionResponse,
+          adventureResponse,
+          mysteryResponse,
+          documentaryResponse,
+          biographyResponse,
+          dramaResponse,
+          awardwinningResponse,
+          scifiResponse,
+        ]);
+        if (fetchedData.length != 14) {
+          throw new Error("error while fetching all the data...");
+        } else {
+          const allParsedData =fetchedData.map(async (obj) => {
+            const parsedObj= await obj.json();
+            return parsedObj;
+          });
+          const allData= await Promise.all(allParsedData);
+          setComedy(allData[0]);
+          setRomance(allData[1]);
+          setWar(allData[2]);
+          setThriller(allData[3]);
+          setFantasy(allData[4]);
+          setHorror(allData[5]);
+          setAction(allData[6]);
+          setAdventure(allData[7]);
+          setMystery(allData[8]);
+          setDocumentary(allData[9]);
+          setBiography(allData[10]);
+          setDrama(allData[11]);
+          setAwardwinning(allData[12]);
+          setScifi(allData[13]);
         }
-        const jsonScifi = await scifiResponse.json();
-        setScifi(jsonScifi);
         //----------------------------------scifi-----------------------------------------------------
       } catch (error) {
         setError(error);
-        console.log(error) // Handle any errors
+        console.log(error); // Handle any errors
       } finally {
         setLoading(false); // Set loading to false once fetching is done
       }
     };
 
-    fetchData(); // Call the async function
+    const checkSession = async () => {
+      const session = await fetch(
+        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,
+        { credentials: "include" }
+      );
+      const sessionData = await session.json();
+      console.log(session.ok, sessionData.loggedin);
+      if (session.ok && sessionData.loggedin) {
+        fetchData();
+      } else {
+        navigate("/");
+      }
+    };
+    checkSession();
   }, []);
 
   const CarsouelSettings = {
@@ -378,98 +355,91 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "comedy" }}
+            state={{ genre:'comedy',data:comedy }}
           >
             see all
           </NavLink>
         </div>
         <GenericCarousel key="comedy" data={comedy} />
 
-
         <div className="titleBar">
           <h2 className="genreName">Action</h2>
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "action" }}
+            state={{ genre: "action",data:action }}
           >
             see all
           </NavLink>
         </div>
         <GenericCarousel key="action" data={action} />
 
-
         <div className="titleBar">
           <h2 className="genreName">Horror</h2>
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "horror" }}
+            state={{ genre: "horror" ,data:horror}}
           >
             see all
           </NavLink>
         </div>
-        <GenericCarousel key="horror" data={horror}/>
-
+        <GenericCarousel key="horror" data={horror} />
 
         <div className="titleBar">
           <h2 className="genreName">Romance</h2>
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "romance" }}
+            state={{ genre: "romance" , data:romance}}
           >
             see all
           </NavLink>
         </div>
         <GenericCarousel key="romance" data={romance} />
 
-
         <div className="titleBar">
           <h2 className="genreName">Adventure</h2>
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "adventure" }}
+            state={{ genre: "adventure", data:adventure }}
           >
             see all
           </NavLink>
         </div>
-        <GenericCarousel key="adventure" data={adventure}/>
-
+        <GenericCarousel key="adventure" data={adventure} />
 
         <div className="titleBar">
           <h2 className="genreName">War</h2>
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "war" }}
+            state={{ genre: "war", data:war }}
           >
             see all
           </NavLink>
         </div>
         <GenericCarousel key="war" data={war} />
 
-
         <div className="titleBar">
           <h2 className="genreName">Sci-fi</h2>
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "scifi" }}
+            state={{ genre: "scifi",data:scifi }}
           >
             see all
           </NavLink>
         </div>
-        <GenericCarousel key="scifi" data={scifi}/>
-
+        <GenericCarousel key="scifi" data={scifi} />
 
         <div className="titleBar">
           <h2 className="genreName">Mystery</h2>
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "mystery" }}
+            state={{ genre: "mystery", data:mystery }}
           >
             see all
           </NavLink>

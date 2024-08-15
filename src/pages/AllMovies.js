@@ -1,13 +1,23 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import "./allMovies.css"
 
 const AllMovies = () => {
     const location = useLocation();
-    const { genre } = location.state || {};
-    // console.log(location.state)
-    // console.log("genre: " + genre)
+    const { genre, data } = location.state || {};
+    
     return (
-        <div><h1>{genre} hello</h1></div>
+        <div>
+        <div><h1>{genre}</h1></div>
+        <div className="gridContainer">{data.map((movieObj)=>{
+            const dataArray=movieObj;
+           return( <div className="griditem" key={movieObj.MovieID}>
+            <NavLink to="/user/streamming" state={{dataArray}}>
+            <img className="thumbnailImg" src={`https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/thumbnails/${movieObj.Thumbnail}`} />
+            </NavLink>
+           </div>)
+        })}</div>
+        </div>
     )
 }
 export default AllMovies

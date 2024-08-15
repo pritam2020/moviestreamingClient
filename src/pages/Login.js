@@ -1,11 +1,13 @@
 // import { Button } from "bootstrap";
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import "./login.css";
 
 const Login = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorAlert, setErrorAlert] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +18,6 @@ const Login = () => {
   };
 
   const loginCall = async (username, password) => {
-    
     try {
       const loginRequest = await fetch(
         `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/clientlogin`,
@@ -32,39 +33,42 @@ const Login = () => {
           }),
         }
       );
-      
-      if(loginRequest.ok){
-        navigate('/user/home');
-      }else{
-        const data=await loginRequest.json();
-        alert(JSON.stringify(data));
+
+      if (loginRequest.ok) {
+        navigate("/user/home");
+      } else {
+        const data = await loginRequest.json();
+        setErrorAlert(JSON.stringify(data));
       }
-      
-    } catch (error) {
-      alert(error);
+    } catch(error) {
+      setErrorAlert(error);
       console.log(error);
     }
   };
 
   useEffect(() => {
     fetch(
-      `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`
+      `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,{credentials:"include"}
     )
       .then((response) => {
         if (!response.ok) {
-          throw new error("error in session checking");
+          throw new Error("error in session checking");
         } else {
           return response.json();
         }
       })
-      .then((data) => console.log(data))
-      .catch((error) => {
-        console.log(error);
+      .then((data) => {
+        if (data.loggedin) {
+          navigate("/user/home");
+        }
       })
-  
-  }, []
-);
-    
+      .catch((error) => {
+        setErrorAlert(error.message);
+        console.log("error-state");
+        //console.log(error);
+        console.log(errorAlert);
+      });
+  }, []);
 
   return (
     <div>
@@ -92,6 +96,11 @@ const Login = () => {
           <button type="submit">Login</button>
         </form>
       </div>
+      {errorAlert ? (
+        <div className="errorDisplay">{JSON.stringify(errorAlert)}</div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

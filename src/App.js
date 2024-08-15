@@ -6,6 +6,7 @@ import Signup from "./pages/signup";
 import Streaming from "./pages/Streamming";
 import Layout from "./pages/layout";
 import AllMovies from "./pages/AllMovies";
+import Account from "./pages/Account"
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                         <Route path="home" element={<Home/>} />
                         <Route path="Streamming" element={<Streaming/>} />
                         <Route path="allmovies"  element={<AllMovies/>} />
+                        <Route path="account" element={<Account/>}/>
                     </Route>
                 </Routes>
             </Router>

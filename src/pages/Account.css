@@ -1,0 +1,8 @@
+.parentContainer{
+    padding: 10px;
+    
+}
+.parentContainer>div{
+    margin: 15px;
+    font-size: xx-large;
+}
