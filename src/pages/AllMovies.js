@@ -8,7 +8,7 @@ const AllMovies = () => {
     
     return (
         <div>
-        <div><h1>{genre}</h1></div>
+        <div><h1>{!genre?"Results":genre}</h1></div>
         <div className="gridContainer">{data.map((movieObj)=>{
             const dataArray=movieObj;
            return( <div className="griditem" key={movieObj.MovieID}>
