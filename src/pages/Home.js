@@ -5,7 +5,9 @@ import GenericCarousel from "../components/GenericCarousel";
 import demoCarousel from "../components/peakpx.jpg";
 import "./Home.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import AllDataContextProvider from "../context/AllDataContextProvider";
+import AllDataContext from "../context/AllDataContext";
 
 const Home = () => {
   const [comedy, setComedy] = useState(null); // State to hold fetched data
@@ -25,6 +27,7 @@ const Home = () => {
 
   const [loading, setLoading] = useState(true); // State to track loading status
   const [error, setError] = useState(null); // State to hold error information
+  const {allData, setAllData}=useContext(AllDataContext);
   const navigate = useNavigate();
   useEffect(() => {
     // Define an asynchronous function to fetch data
@@ -234,6 +237,7 @@ const Home = () => {
             return parsedObj;
           });
           const allData= await Promise.all(allParsedData);
+          setAllData(allData);
           setComedy(allData[0]);
           setRomance(allData[1]);
           setWar(allData[2]);

@@ -40,7 +40,7 @@ const Login = () => {
         const data = await loginRequest.json();
         setErrorAlert(JSON.stringify(data));
       }
-    } catch(error) {
+    } catch (error) {
       setErrorAlert(error);
       console.log(error);
     }
@@ -48,7 +48,8 @@ const Login = () => {
 
   useEffect(() => {
     fetch(
-      `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,{credentials:"include"}
+      `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,
+      { credentials: "include" }
     )
       .then((response) => {
         if (!response.ok) {
@@ -95,6 +96,13 @@ const Login = () => {
           </div>
           <button type="submit">Login</button>
         </form>
+
+        <div>
+        <span className="signupText">are you new ? </span>
+          <NavLink className="signUpLink" to="/signup">
+            <span className="signupRedirect"> SignUp</span>
+          </NavLink>
+        </div>
       </div>
       {errorAlert ? (
         <div className="errorDisplay">{JSON.stringify(errorAlert)}</div>

@@ -7,10 +7,12 @@ import Streaming from "./pages/Streamming";
 import Layout from "./pages/layout";
 import AllMovies from "./pages/AllMovies";
 import Account from "./pages/Account"
+import AllDataContextProvider from "./context/AllDataContextProvider";
 
 function App() {
     return (
         <div className="app">
+            <AllDataContextProvider>
             <Router>
 
                 <Routes>
@@ -24,6 +26,7 @@ function App() {
                     </Route>
                 </Routes>
             </Router>
+            </AllDataContextProvider>
         </div>
     );
 }
