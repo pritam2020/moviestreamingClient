@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import GenericCarousel from "../components/GenericCarousel";
-import demoCarousel from "../components/peakpx.jpg";
+import Carousel1 from "../assets/Carousel1.jpg"
 import "./Home.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
@@ -319,7 +319,7 @@ const Home = () => {
               width: "100%",
               objectPosition: "top",
             }}
-            src={demoCarousel}
+            src={Carousel1}
             alt="slide-1"
           />
         </div>
