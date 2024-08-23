@@ -15,7 +15,7 @@ const GenericCarousel = ({ data }) => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "green" }}
+        style={{ ...style, display: "block"}}
         onClick={onClick}
       />
     );
@@ -23,10 +23,11 @@ const GenericCarousel = ({ data }) => {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
+    console.log(style)
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "red" }}
+        style={{ ...style, display: "block"}}
         onClick={onClick}
       />
     );
@@ -42,19 +43,19 @@ const GenericCarousel = ({ data }) => {
   };
 
   return (
-    <div style={{ width: "95vw", marginLeft: "30px" }}>
+    <div className="carousel-container" style={{ width: "95vw", marginLeft: "30px" }}>
       <Slider {...GenericSettings}>
         {data.map((dataArray) => {
-          if (counter <= 10) {
+          if (counter <= 20) {
             return (
-              <div key={dataArray.MovieID}>
-                <NavLink to="/user/streamming" state={{ dataArray }}>
+              <div className="link-container" key={dataArray.MovieID} > 
+                <NavLink to="/user/streamming" state={{ dataArray }}  >
                   <img
                     className="movieBanner"
                     src={`https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/thumbnails${dataArray.Thumbnail}`}
                     alt="slide-2"
-                    width="200"
-                    height="250"
+                    width="150px"
+                    height="200px"
                   />
                 </NavLink>
               </div>

@@ -72,43 +72,59 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+    <div className="login-container">
+      <div className="form-outline">
+      <h1 className="heading">Login</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="username-container">
+          <label htmlFor="username">Username</label>
+          <input
+            className="username-input"
+            type="text"
+            id="username"
+            value={username}
+            placeholder="pleaser enter username"
+            required
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className="password-container">
+          <label htmlFor="password">Password</label>
+          <input
+            className="password-input"
+            type="password"
+            id="password"
+            value={password}
+            placeholder="please enter password"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="button-container">
+          <div className="empty-div" style={{ width: "120px" ,marginRight:'5px'}}></div>
           <button type="submit">Login</button>
-        </form>
+        </div>
+      </form>
 
-        <div>
-        <span className="signupText">are you new ? </span>
+      <div className="signup-container">
+        <div className="empty-div" style={{ width: "120px" ,marginRight:'5px'}}></div>
+        <div className="signupText-container"> 
+          <span className="signupText">are you new ? </span>
           <NavLink className="signUpLink" to="/signup">
             <span className="signupRedirect"> SignUp</span>
           </NavLink>
         </div>
       </div>
+
       {errorAlert ? (
-        <div className="errorDisplay">{JSON.stringify(errorAlert)}</div>
+        <div className="error-container">
+          <div className="empty-div" style={{width:'120px'}}></div>
+          <div className="errorDisplay">{JSON.stringify(errorAlert)}</div>
+        </div>
       ) : (
         ""
       )}
+      </div>
     </div>
   );
 };

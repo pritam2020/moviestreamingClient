@@ -284,6 +284,8 @@ const Home = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
+    autoplay:true,
+    autoplaySpeed:4000,
     slidesToScroll: 1,
     responsive: [
       {
@@ -309,7 +311,7 @@ const Home = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
   return (
-    <div className="container">
+    <div className="homeContainer">
       <Slider {...CarsouelSettings} className="banner">
         <div>
           <img

@@ -47,7 +47,7 @@ const Streaming = () => {
   }, []);
 
   return (
-    <div>
+    <div className="streamming-container">
       <h1>
         {streammingData && streammingData.MovieName
           ? streammingData.MovieName

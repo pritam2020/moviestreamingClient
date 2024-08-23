@@ -1,3 +1,6 @@
 .movieBanner:hover{
     opacity: 0.7;
 }
+.link-container{
+    width:200px
+}

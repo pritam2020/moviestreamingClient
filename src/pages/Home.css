@@ -1,16 +1,22 @@
-.container{
+
+*{
+  color: #ffffff;  
+}
+.homeContainer{
     position: relative;
     margin-top: -79.8px;
     z-index: 0;
+    background-color: #212121;
 }
 .genreName{
     margin-left: 30px;
 }
 .seeallBtn{
+    color: #ffffff;
     margin-right: 30px;
     opacity: 0.5;
     font-weight: 500;
-    color: black;
+   
     text-decoration: none;
     /* align-self: center; */
 }

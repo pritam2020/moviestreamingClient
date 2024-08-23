@@ -1,3 +1,4 @@
+
 .rootHeaderContainer {
   padding-top: 0px;
 }
@@ -7,7 +8,7 @@
   padding-bottom: 5px;
   position: relative;
   z-index: 5;
-  background-color: rgba(14, 26, 61, 0.777);
+  background-color:#212121c0;
 }
 .header {
   display: flex;
@@ -25,7 +26,7 @@
   padding-left: 10px;
   margin-top: -10px;
   transition: transform 0.5s ease-out;
-  background-color: rgb(14, 26, 61);
+  background-color:#212121 ;
   position: fixed;
   height: 100%;
   width: 200px;
@@ -42,7 +43,7 @@
   transition: transform 0.5s ease-out;
   padding-left: 10px;
   margin-top: -10px;
-  background-color: rgb(14, 26, 61);
+  background-color:#212121 ;
   position: fixed;
   height: 100%;
   width: 200px;
@@ -86,7 +87,7 @@
 }
 .genreBtn {
   position: relative;
-  background-color: rgb(14, 26, 61);
+  background-color:#212121 ;
   height: fit-content;
   width: fit-content;
   border: 1px solid rgb(132, 138, 144);
@@ -100,7 +101,7 @@
 .genreBtn-blur {
   position: relative;
   pointer-events: none;
-  background-color: rgb(14, 26, 61);
+  background-color:#212121 ;
   height: fit-content;
   width: fit-content;
   border: 1px solid rgb(132, 138, 144);
@@ -126,7 +127,7 @@
   width: 120px;
   height: auto;
   margin-top: -40px;
-  background-color: rgb(14, 26, 61);
+  background-color:#212121 ;
   padding: 45px 10px 10px 10px;
 }
 .searchBtn {
@@ -144,7 +145,7 @@
 .searchInput {
   height: 100%;
   border: none;
-  background-color: rgb(14, 26, 61);
+  background-color:#212121 ;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   padding-left: 10px;
@@ -174,6 +175,9 @@
 }
 .blur {
   filter: blur(5px);
+}
+.disable-home{
+  pointer-events: none;
 }
 .genreList > ul > li {
   list-style-type: none;
@@ -206,6 +210,7 @@
   margin: auto;
   width: 70%;
   font-size: larger;
+  color: black;
 }
 .logoutOptions {
   padding: 5px;

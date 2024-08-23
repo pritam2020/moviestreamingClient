@@ -20,9 +20,11 @@ const Layout = () => {
 
   const setMenuOpen = () => {
     setmenuOpen(true);
+   
   };
   const setMenuClose = () => {
     setmenuOpen(false);
+    
   };
   const handelMouseEnter = () => {
     setisHovered(true);
@@ -36,6 +38,7 @@ const Layout = () => {
   };
   const userLogutCancel = () => {
     setLogout(false);
+    setmenuOpen(false)
   };
   const logoutCall = async () => {
     try {
@@ -54,6 +57,8 @@ const Layout = () => {
       alert(err);
     }
   };
+
+
   return (
     <div className="rootHeaderContainer">
       <div className="headerContainer">
@@ -268,7 +273,9 @@ const Layout = () => {
       )}
 
       <div className={`${menuOpen ? "blur" : ""}`} onClick={setMenuClose}>
-        <Outlet className="outlet" />
+        <div className={menuOpen?"disable-home":""}>
+        <Outlet />
+        </div>
       </div>
       <div>Common footer</div>
     </div>

@@ -1,8 +1,116 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #212121;
+    height: 100vh;
+    justify-content: center;
+    
+}
+.form-outline{
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    border: 2px solid white;
+    
+   
+}
+.login-form{
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.heading{
+    text-align: center;
+}
+
+label{
+    margin-right: 5px;
+    font-size:x-large;
+    width: 120px;
+}
+.username-container{
+    margin: 5px 5px 15px 5px;
+    display: flex;
+    justify-content:center ;
+}
+.username-input{
+    
+    border: 2px solid white;
+    background-color: #21212161;
+    height: 40px;
+    width: 220px;
+    padding: 5px;
+    
+    &&::placeholder{
+        font-size: larger;
+        
+    }
+}
+.password-container{
+    margin: 0px 5px 15px 5px;
+    display: flex;
+    justify-content:center ;
+
+}
+.password-input{
+    border: 2px solid white;
+    height: 40px;
+    width: 220px;
+    padding: 5px;
+    background-color: #21212161;
+    
+    &&::placeholder{
+        font-size: larger;
+       
+    }
+}
+.error-container{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
 .errorDisplay{
+    
+    width: 220px;
+    margin: 0 auto;
     color: white;
     padding:10px;
     border-radius: 5px;
     background-color: red;
+    overflow-x:scroll
+}
+.button-container{
+    margin: 0px 5px 5px 5px;
+    display: flex;
+    justify-content: center;
+   
+}
+button{
+   
+    width: 220px;
+    padding: 5px;
+    color: white;
+    background-color: #212121;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: larger;
+
+    &&:hover{
+        background-color: white;
+        color: #212121;
+    }
+}
+.signup-container{
+    padding-top: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.signupText-container{
+    width: 220px;
+    text-align: center;
 }
 .signupLink{
 
