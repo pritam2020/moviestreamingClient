@@ -1,5 +1,47 @@
-.passwordCheckAlert{
-    padding: 5px;
-    background-color: red;
-    color: whitesmoke;
+.signup-container {
+  padding-left: 25px;
+  background-color: #212121;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signup-form-outline {
+  padding: 30px;
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  border: 2px solid white;
+}
+.signup-form {
+  width: fit-content;
+}
+.passwordCheckAlert {
+  padding: 5px;
+  background-color: red;
+  color: whitesmoke;
+}
+.submit-button {
+  padding: 10px;
+  background-color: red;
+  width: 100%;
+}
+
+.signup-form-outline > form > div {
+  margin: 2px;
+  width: fit-content;
+}
+.signup-form-outline > form > div > label {
+  display: block;
+  width: 175px;
+  font-size: small;
+  margin-top:5px
+}
+.signup-form-outline > form > div > input {
+  background-color: #212121;
+  border: 2px solid white;
+  display: block;
+  width: 175px;
+  font-size: medium;
+  padding: 5px;
 }

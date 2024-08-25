@@ -1,8 +1,13 @@
-.parentContainer{
+.account-container{
     padding: 10px;
+    height: 100vh;
+    background-color: #212121;
     
 }
-.parentContainer>div{
+.account-container-header{
+    font-size: xx-large;
+}
+.account-container>div:not(:first-child){
     margin: 15px;
     font-size: xx-large;
 }

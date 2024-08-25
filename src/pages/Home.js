@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import GenericCarousel from "../components/GenericCarousel";
-import Carousel1 from "../assets/Carousel1.jpg"
+import Carousel1 from "../assets/Carousel1.jpg";
 import "./Home.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
@@ -27,7 +27,8 @@ const Home = () => {
 
   const [loading, setLoading] = useState(true); // State to track loading status
   const [error, setError] = useState(null); // State to hold error information
-  const {allData, setAllData}=useContext(AllDataContext);
+  const { allData, setAllData } = useContext(AllDataContext);
+  const [carousel, setCarousel] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     // Define an asynchronous function to fetch data
@@ -232,12 +233,25 @@ const Home = () => {
         if (fetchedData.length != 14) {
           throw new Error("error while fetching all the data...");
         } else {
-          const allParsedData =fetchedData.map(async (obj) => {
-            const parsedObj= await obj.json();
+          const allParsedData = fetchedData.map(async (obj) => {
+            const parsedObj = await obj.json();
             return parsedObj;
           });
-          const allData= await Promise.all(allParsedData);
+          const allData = await Promise.all(allParsedData);
           setAllData(allData);
+          const comedyarr = allData[0];
+          const romancearr = allData[1];
+          const wararr = allData[2];
+          const thrillerarr = allData[3];
+          const fantasyarr = allData[4];
+          console.log("comedy", comedyarr[0].Thumbnail);
+          setCarousel({
+            carousel1: `https://localhost:3002/protected-route/thumbnails/${comedyarr[0].Thumbnail}`,
+            carousel2: `https://localhost:3002/protected-route/thumbnails/${romancearr[0].Thumbnail}`,
+            carousel3: `https://localhost:3002/protected-route/thumbnails/${wararr[0].Thumbnail}`,
+            carousel4: `https://localhost:3002/protected-route/thumbnails/${thrillerarr[0].Thumbnail}`,
+            carousel5: `https://localhost:3002/protected-route/thumbnails/${fantasyarr[0].Thumbnail}`,
+          });
           setComedy(allData[0]);
           setRomance(allData[1]);
           setWar(allData[2]);
@@ -284,8 +298,8 @@ const Home = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    autoplay:true,
-    autoplaySpeed:4000,
+    autoplay: true,
+    autoplaySpeed: 4000,
     slidesToScroll: 1,
     responsive: [
       {
@@ -321,35 +335,55 @@ const Home = () => {
               width: "100%",
               objectPosition: "top",
             }}
-            src={Carousel1}
+            src={carousel.carousel1 ? carousel.carousel1 : "#"}
             alt="slide-1"
           />
         </div>
         <div>
           <img
-            style={{ objectFit: "contain" }}
-            src="https://via.placeholder.com/2000x600"
+            style={{
+              objectFit: "cover",
+              height: "700px",
+              width: "100%",
+              objectPosition: "top",
+            }}
+            src={carousel.carousel2 ? carousel.carousel2 : "#"}
             alt="slide-2"
           />
         </div>
         <div>
           <img
-            style={{ objectFit: "contain" }}
-            src="https://via.placeholder.com/2000x600"
+            style={{
+              objectFit: "cover",
+              height: "700px",
+              width: "100%",
+              objectPosition: "top",
+            }}
+            src={carousel.carousel3 ? carousel.carousel3 : "#"}
             alt="slide-3"
           />
         </div>
         <div>
           <img
-            style={{ objectFit: "contain" }}
-            src="https://via.placeholder.com/2000x600"
+            style={{
+              objectFit: "cover",
+              height: "700px",
+              width: "100%",
+              objectPosition: "top",
+            }}
+            src={carousel.carousel4 ? carousel.carousel4 : "#"}
             alt="slide-4"
           />
         </div>
         <div>
           <img
-            style={{ objectFit: "contain" }}
-            src="https://via.placeholder.com/2000x600"
+            style={{
+              objectFit: "cover",
+              height: "700px",
+              width: "100%",
+              objectPosition: "top",
+            }}
+            src={carousel.carousel5 ? carousel.carousel5 : "#"}
             alt="slide-5"
           />
         </div>
@@ -361,7 +395,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre:'comedy',data:comedy }}
+            state={{ genre: "comedy", data: comedy }}
           >
             see all
           </NavLink>
@@ -373,7 +407,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "action",data:action }}
+            state={{ genre: "action", data: action }}
           >
             see all
           </NavLink>
@@ -385,7 +419,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "horror" ,data:horror}}
+            state={{ genre: "horror", data: horror }}
           >
             see all
           </NavLink>
@@ -397,7 +431,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "romance" , data:romance}}
+            state={{ genre: "romance", data: romance }}
           >
             see all
           </NavLink>
@@ -409,7 +443,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "adventure", data:adventure }}
+            state={{ genre: "adventure", data: adventure }}
           >
             see all
           </NavLink>
@@ -421,7 +455,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "war", data:war }}
+            state={{ genre: "war", data: war }}
           >
             see all
           </NavLink>
@@ -433,7 +467,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "scifi",data:scifi }}
+            state={{ genre: "scifi", data: scifi }}
           >
             see all
           </NavLink>
@@ -445,7 +479,7 @@ const Home = () => {
           <NavLink
             className="seeallBtn"
             to="/user/allmovies"
-            state={{ genre: "mystery", data:mystery }}
+            state={{ genre: "mystery", data: mystery }}
           >
             see all
           </NavLink>

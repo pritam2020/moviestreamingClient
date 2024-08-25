@@ -106,7 +106,7 @@ const Login = () => {
         </div>
       </form>
 
-      <div className="signup-container">
+      <div className="signup-request-container">
         <div className="empty-div" style={{ width: "120px" ,marginRight:'5px'}}></div>
         <div className="signupText-container"> 
           <span className="signupText">are you new ? </span>

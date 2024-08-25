@@ -95,6 +95,16 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
+                        state={{ genre: "Action", data: allData[6] }}
+                        onClick={handelMouseLeave}
+                      >
+                        Action
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        className="genreNavLink"
+                        to="/user/allmovies"
                         state={{ genre: "Horror", data: allData[5] }}
                         onClick={handelMouseLeave}
                       >

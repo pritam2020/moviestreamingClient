@@ -52,23 +52,24 @@ const Account = () => {
   }, []);
 
   return (
-    <div className="parentContainer">
+    <div className="account-container">
+      <div className="account-container-header">Account Details</div><br></br>
       <div>
-        username: {accountDetails ? accountDetails.UserName : "loading..."}
+        Username: {accountDetails ? accountDetails.UserName : "loading..."}
       </div>
       <div>
-        first name: {accountDetails ? accountDetails.FirstName : "loading..."}
+        First name: {accountDetails ? accountDetails.FirstName : "loading..."}
       </div>
       <div>
-        last name: {accountDetails ? accountDetails.LastName : "loading..."}
+        Last name: {accountDetails ? accountDetails.LastName : "loading..."}
       </div>
-      <div>email: {accountDetails ? accountDetails.EmailId : "loading..."}</div>
+      <div>Email: {accountDetails ? accountDetails.EmailId : "loading..."}</div>
       <div>
-        country: {accountDetails ? accountDetails.Country : "loading..."}
+        Country: {accountDetails ? accountDetails.Country : "loading..."}
       </div>
-      <div>city: {accountDetails ? accountDetails.City : "loading..."}</div>
+      <div>City: {accountDetails ? accountDetails.City : "loading..."}</div>
       <div>
-        pincode: {accountDetails ? accountDetails.PinCode : "loading..."}
+        Pincode: {accountDetails ? accountDetails.PinCode : "loading..."}
       </div>
     </div>
   );
