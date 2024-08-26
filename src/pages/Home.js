@@ -8,6 +8,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useContext } from "react";
 import AllDataContextProvider from "../context/AllDataContextProvider";
 import AllDataContext from "../context/AllDataContext";
+import { NavbarCollapse } from "react-bootstrap";
 
 const Home = () => {
   const [comedy, setComedy] = useState(null); // State to hold fetched data
@@ -328,64 +329,74 @@ const Home = () => {
     <div className="homeContainer">
       <Slider {...CarsouelSettings} className="banner">
         <div>
-          <img
-            style={{
-              objectFit: "cover",
-              height: "700px",
-              width: "100%",
-              objectPosition: "top",
-            }}
-            src={carousel.carousel1 ? carousel.carousel1 : "#"}
-            alt="slide-1"
-          />
+          <NavLink to="/user/streamming" state={{ dataArray: comedy[0] }}>
+            <img
+              style={{
+                objectFit: "cover",
+                height: "700px",
+                width: "100%",
+                objectPosition: "top",
+              }}
+              src={carousel.carousel1 ? carousel.carousel1 : "#"}
+              alt="slide-1"
+            />
+          </NavLink>
         </div>
         <div>
-          <img
-            style={{
-              objectFit: "cover",
-              height: "700px",
-              width: "100%",
-              objectPosition: "top",
-            }}
-            src={carousel.carousel2 ? carousel.carousel2 : "#"}
-            alt="slide-2"
-          />
+          <NavLink to="/user/streamming" d state={{ dataArray: romance[0] }}>
+            <img
+              style={{
+                objectFit: "cover",
+                height: "700px",
+                width: "100%",
+                objectPosition: "top",
+              }}
+              src={carousel.carousel2 ? carousel.carousel2 : "#"}
+              alt="slide-2"
+            />
+          </NavLink>
         </div>
         <div>
-          <img
-            style={{
-              objectFit: "cover",
-              height: "700px",
-              width: "100%",
-              objectPosition: "top",
-            }}
-            src={carousel.carousel3 ? carousel.carousel3 : "#"}
-            alt="slide-3"
-          />
+          <NavLink to="/user/streamming" d state={{ dataArray: war[0] }}>
+            <img
+              style={{
+                objectFit: "cover",
+                height: "700px",
+                width: "100%",
+                objectPosition: "top",
+              }}
+              src={carousel.carousel3 ? carousel.carousel3 : "#"}
+              alt="slide-3"
+            />
+          </NavLink>
         </div>
         <div>
-          <img
-            style={{
-              objectFit: "cover",
-              height: "700px",
-              width: "100%",
-              objectPosition: "top",
-            }}
-            src={carousel.carousel4 ? carousel.carousel4 : "#"}
-            alt="slide-4"
-          />
+          <NavLink to="/user/streamming" d state={{ dataArray: thriller[0] }}>
+            <img
+              style={{
+                objectFit: "cover",
+                height: "700px",
+                width: "100%",
+                objectPosition: "top",
+              }}
+              src={carousel.carousel4 ? carousel.carousel4 : "#"}
+              alt="slide-4"
+            />
+          </NavLink>
         </div>
         <div>
-          <img
-            style={{
-              objectFit: "cover",
-              height: "700px",
-              width: "100%",
-              objectPosition: "top",
-            }}
-            src={carousel.carousel5 ? carousel.carousel5 : "#"}
-            alt="slide-5"
-          />
+          <NavLink to="/user/streamming" d state={{ dataArray: fantasy[0] }}>
+            <img
+              style={{
+                objectFit: "cover",
+                height: "700px",
+                width: "100%",
+                objectPosition: "top",
+              }}
+              src={carousel.carousel5 ? carousel.carousel5 : "#"}
+              alt="slide-5"
+            />
+          </NavLink>
         </div>
       </Slider>
 
