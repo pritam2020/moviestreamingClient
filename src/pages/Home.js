@@ -246,11 +246,11 @@ const Home = () => {
           const fantasyarr = allData[4];
           console.log("comedy", comedyarr[0].Thumbnail);
           setCarousel({
-            carousel1: `https://localhost:3002/protected-route/thumbnails/${comedyarr[0].Thumbnail}`,
-            carousel2: `https://localhost:3002/protected-route/thumbnails/${romancearr[0].Thumbnail}`,
-            carousel3: `https://localhost:3002/protected-route/thumbnails/${wararr[0].Thumbnail}`,
-            carousel4: `https://localhost:3002/protected-route/thumbnails/${thrillerarr[0].Thumbnail}`,
-            carousel5: `https://localhost:3002/protected-route/thumbnails/${fantasyarr[0].Thumbnail}`,
+            carousel1: `https://localhost:3002/protected-route/carousel${comedyarr[0].CarouselFile}`,
+            carousel2: `https://localhost:3002/protected-route/carousel${romancearr[0].CarouselFile}`,
+            carousel3: `https://localhost:3002/protected-route/carousel${wararr[0].CarouselFile}`,
+            carousel4: `https://localhost:3002/protected-route/carousel${thrillerarr[0].CarouselFile}`,
+            carousel5: `https://localhost:3002/protected-route/carousel${fantasyarr[0].CarouselFile}`,
           });
           setComedy(allData[0]);
           setRomance(allData[1]);
