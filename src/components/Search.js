@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import "./Search.css";
 import { useNavigate} from "react-router-dom";
 import searchIcon from "../assets/searchIcon.png";
@@ -6,9 +6,15 @@ import searchIcon from "../assets/searchIcon.png";
 
 const Search = ({menuState}) => {
   const [searchParam, setSearchParam] = useState(null);
-  const [menuOpen,setMenuOpen]=useState(menuState)
+  const [menuOpen,setMenuOpen]=useState(false)
   const navigate=useNavigate();
 
+ useEffect(()=>{
+  
+    setMenuOpen(menuState)
+  
+ },[menuState])
+  
   const search = () => {
     console.log("search parameter: ", searchParam);
     fetch(
@@ -29,7 +35,8 @@ const Search = ({menuState}) => {
         navigate("/user/allmovies", { state: { genre: "", data: data } });
       });
   };
-
+  console.log("menu state from search.js",menuState)
+  console.log("menu state from search.js state variable",menuOpen)
   return (
     <div className={`searchBtn${menuOpen ? "-blur" : ""}`} onSubmit={search}>
       <input

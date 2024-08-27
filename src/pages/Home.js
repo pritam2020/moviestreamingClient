@@ -327,19 +327,25 @@ const Home = () => {
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div className="homeContainer">
+      <div className="left-banner-blur">
+        
+      </div>
       <Slider {...CarsouelSettings} className="banner">
-        <div>
+        <div style={{ position: "relative" }}>
           <NavLink to="/user/streamming" state={{ dataArray: comedy[0] }}>
             <img
               style={{
                 objectFit: "cover",
                 height: "700px",
                 width: "100%",
-                objectPosition: "top",
+                objectPosition:"top"
               }}
               src={carousel.carousel1 ? carousel.carousel1 : "#"}
               alt="slide-1"
             />
+            <div style={{ position: "absolute", top: "200px", zIndex: "12" }}>
+              hello
+            </div>
           </NavLink>
         </div>
         <div>

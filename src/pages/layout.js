@@ -58,7 +58,7 @@ const Layout = () => {
     }
   };
 
-
+console.log("menu state from layout.js",menuOpen)
   return (
     <div className="rootHeaderContainer">
       <div className="headerContainer">
@@ -261,7 +261,7 @@ const Layout = () => {
               </li>
             </ul>
           </div>
-          <Search menuState={menuOpen ? true : false} />
+          <Search menuState={menuOpen} />
         </nav>
       </div>
       {logout ? (
