@@ -16,7 +16,7 @@ const Search = ({menuState}) => {
  },[menuState])
   
   const search = () => {
-    console.log("search parameter: ", searchParam);
+    //console.log("search parameter: ", searchParam);
     fetch(
       `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/moviedetails/search?SearchQuery=${searchParam}`,
       {
@@ -35,8 +35,8 @@ const Search = ({menuState}) => {
         navigate("/user/allmovies", { state: { genre: "", data: data } });
       });
   };
-  console.log("menu state from search.js",menuState)
-  console.log("menu state from search.js state variable",menuOpen)
+ // console.log("menu state from search.js",menuState)
+  //console.log("menu state from search.js state variable",menuOpen)
   return (
     <div className={`searchBtn${menuOpen ? "-blur" : ""}`} onSubmit={search}>
       <input

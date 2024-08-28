@@ -27,7 +27,7 @@ const Account = () => {
             data.FirstName =
               FirstName.charAt(0).toUpperCase() + FirstName.slice(1);
             setAccountDetails(data);
-            console.log("account details:", data);
+           // console.log("account details:", data);
           })
           .catch((error) => console.log(error.message));
       };

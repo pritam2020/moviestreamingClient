@@ -9,6 +9,7 @@ import React, { useEffect, useState, useContext } from "react";
 import AllDataContextProvider from "../context/AllDataContextProvider";
 import AllDataContext from "../context/AllDataContext";
 import { NavbarCollapse } from "react-bootstrap";
+import Banner from "../components/Banner";
 
 const Home = () => {
   const [comedy, setComedy] = useState(null); // State to hold fetched data
@@ -245,13 +246,13 @@ const Home = () => {
           const wararr = allData[2];
           const thrillerarr = allData[3];
           const fantasyarr = allData[4];
-          console.log("comedy", comedyarr[0].Thumbnail);
+         // console.log("comedy", comedyarr[0].Thumbnail);
           setCarousel({
-            carousel1: `https://localhost:3002/protected-route/carousel${comedyarr[0].CarouselFile}`,
-            carousel2: `https://localhost:3002/protected-route/carousel${romancearr[0].CarouselFile}`,
-            carousel3: `https://localhost:3002/protected-route/carousel${wararr[0].CarouselFile}`,
-            carousel4: `https://localhost:3002/protected-route/carousel${thrillerarr[0].CarouselFile}`,
-            carousel5: `https://localhost:3002/protected-route/carousel${fantasyarr[0].CarouselFile}`,
+            carousel1: comedyarr[0],
+            carousel2: romancearr[0],
+            carousel3: wararr[0],
+            carousel4: thrillerarr[0],
+            carousel5: fantasyarr[0],
           });
           setComedy(allData[0]);
           setRomance(allData[1]);
@@ -293,44 +294,14 @@ const Home = () => {
     checkSession();
   }, []);
 
-  const CarsouelSettings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-    ],
-  };
+ 
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div className="homeContainer">
-      <div className="left-banner-blur">
-        
-      </div>
-      <Slider {...CarsouelSettings} className="banner">
+      {/* <div className="left-banner-blur"></div> */}
+      {/* <Slider {...CarsouelSettings} className="banner">
         <div style={{ position: "relative" }}>
           <NavLink to="/user/streamming" state={{ dataArray: comedy[0] }}>
             <img
@@ -404,7 +375,9 @@ const Home = () => {
             />
           </NavLink>
         </div>
-      </Slider>
+      </Slider> */}
+
+      <Banner carouselData={carousel}/>
 
       <div className="genreCarousels">
         <div className="titleBar">
@@ -506,6 +479,5 @@ const Home = () => {
     </div>
   );
 };
-
 
 export default Home;

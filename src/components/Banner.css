@@ -1,0 +1,53 @@
+.banner-image {
+  object-fit: cover;
+  height: 700px;
+  width: 100%;
+  object-position: top;
+}
+
+.banner-movie-name{
+    font-size: 60px; 
+}
+.banner-movie-description {
+  width: 37%;
+  padding-left: 10px;
+  color: #adb5bd;
+}
+.watchnow-button {
+  width: 25%;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 15px;
+}
+.left-banner-blur {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  height: 700px;
+  width: 100%;
+  left: 0px;
+  z-index: 1;
+  background: rgb(33, 33, 33);
+  background: linear-gradient(
+    90deg,
+    rgba(33, 33, 33, 1) 0%,
+    rgba(33, 33, 33, 1) 22%,
+    rgba(33, 33, 33, 1) 27%,
+    rgba(33, 33, 33, 0.98) 35%,
+    rgba(33, 33, 33, 0.96) 43%,
+    rgba(33, 33, 33, 0.94) 46%,
+    rgba(33, 33, 33, 0.92) 50%,
+    rgba(33, 33, 33, 0.8968837535014006) 52%,
+    rgba(33, 33, 33, 0.7988445378151261) 55%,
+    rgba(33, 33, 33, 0.75) 57%,
+    rgba(33, 33, 33, 0.7008053221288515) 58%,
+    rgba(33, 33, 33, 0.5971638655462185) 61%,
+    rgba(33, 33, 33, 0.5019257703081232) 64%,
+    rgba(33, 33, 33, 0.35066526610644255) 75%,
+    rgba(33, 33, 33, 0.24702380952380953) 86%,
+    rgba(33, 33, 33, 0) 100%
+  );
+}

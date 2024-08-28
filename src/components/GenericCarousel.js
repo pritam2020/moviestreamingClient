@@ -8,7 +8,7 @@ import "./GenericCarousel.css";
 const GenericCarousel = ({ data }) => {
   const counter = 0;
   // console.log("carousel data....")
-  console.log("data from generic carousel: ",data);
+ // console.log("data from generic carousel: ",data);
 
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
@@ -23,7 +23,7 @@ const GenericCarousel = ({ data }) => {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
-    console.log(style)
+    //console.log(style)
     return (
       <div
         className={className}
