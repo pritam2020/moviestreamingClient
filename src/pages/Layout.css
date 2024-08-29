@@ -1,4 +1,3 @@
-
 .rootHeaderContainer {
   padding-top: 0px;
 }
@@ -8,7 +7,7 @@
   padding-bottom: 5px;
   position: relative;
   z-index: 5;
-  background-color:#212121c0;
+  background-color: #212121c0;
 }
 .header {
   display: flex;
@@ -26,7 +25,7 @@
   padding-left: 10px;
   margin-top: -10px;
   transition: transform 0.5s ease-out;
-  background-color:#212121 ;
+  background-color: #212121;
   position: fixed;
   height: 100%;
   width: 200px;
@@ -43,7 +42,7 @@
   transition: transform 0.5s ease-out;
   padding-left: 10px;
   margin-top: -10px;
-  background-color:#212121 ;
+  background-color: #212121;
   position: fixed;
   height: 100%;
   width: 200px;
@@ -87,7 +86,7 @@
 }
 .genreBtn {
   position: relative;
-  background-color:#212121 ;
+  background-color: #212121;
   height: fit-content;
   width: fit-content;
   border: 1px solid rgb(132, 138, 144);
@@ -101,7 +100,7 @@
 .genreBtn-blur {
   position: relative;
   pointer-events: none;
-  background-color:#212121 ;
+  background-color: #212121;
   height: fit-content;
   width: fit-content;
   border: 1px solid rgb(132, 138, 144);
@@ -127,7 +126,7 @@
   width: 120px;
   height: auto;
   margin-top: -40px;
-  background-color:#212121 ;
+  background-color: #212121;
   padding: 45px 10px 10px 10px;
 }
 .searchBtn {
@@ -145,7 +144,7 @@
 .searchInput {
   height: 100%;
   border: none;
-  background-color:#212121 ;
+  background-color: #212121;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   padding-left: 10px;
@@ -176,7 +175,7 @@
 .blur {
   filter: blur(5px);
 }
-.disable-home{
+.disable-home {
   pointer-events: none;
 }
 .genreList > ul > li {
@@ -236,4 +235,42 @@
 .logoutCancel:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+.moviesforyou {
+  font-size: 100px;
+}
+.footer {
+  position: relative;
+  height: 500px;
+  background-color: #1b1b1b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.middle-footer-content {
+  display: flex;
+  align-items: center;
+  line-height: 100%;
+  justify-content: center;
+  font-size: xx-large;
+}
+.recorder-icon {
+  height: 64px;
+  width: 64px;
+  margin-right: 5px;
+}
+.bottom-footer-content{
+  position:absolute;
+  bottom: 8px;
+  
+}
+.bottom-footer-link{
+  text-decoration: none;
+  margin-left: 10px;
+  color: rgb(196, 196, 196);
+  &&:hover{
+    color: rgb(241, 241, 241);
+  }
 }

@@ -1,8 +1,46 @@
-.streamming-container{
-    background-color: #212121;
+.streamming-container {
+  background-color: #212121;
+  padding-left: 15px;
 }
-video{
-    display: block;
-    margin: auto;
-    
+video {
+  display: block;
+  margin: auto;
+}
+.description-title {
+  font-size: xx-large;
+}
+.description {
+  font-weight: 100;
+}
+.cast-title {
+}
+.cast {
+  font-weight: 100;
+}
+.imdb-icon {
+  height: 56px;
+  width: 56px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+.imdb-rating {
+    font-weight: 500;
+    font-size: larger;
+    display:inline-block;
+    vertical-align:middle;
+}
+.directors-title {
+}
+.directors {
+  font-weight: 100;
+}
+.language-title {
+}
+.language {
+  font-weight: 100;
+}
+.releaseDate-title {
+}
+.releaseDate {
+  font-weight: 100;
 }

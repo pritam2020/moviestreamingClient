@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./streamming.css";
+import imdbIcon from "../assets/icons8-imdb-96.png";
 
 const Streaming = () => {
   const location = useLocation();
@@ -31,7 +32,7 @@ const Streaming = () => {
         console.log(movieID);
         const streamingCall = await fetch(
           `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/moviedetails?movieID=${movieID}`,
-          { credentials:"include" }
+          { credentials: "include" }
         );
         const streamingCallData = await streamingCall.json();
         if (streamingCall.ok && streamingCallData) {
@@ -48,7 +49,7 @@ const Streaming = () => {
 
   return (
     <div className="streamming-container">
-      <h1>
+      <h1 className="movie-title">
         {streammingData && streammingData.MovieName
           ? streammingData.MovieName
           : "no movie name found"}
@@ -63,42 +64,42 @@ const Streaming = () => {
           type="video/mp4"
         />
       </video>
-      <h2>Description:</h2>
-      <h3>
+      <h2 className="description-title">Description</h2>
+      <h4 className="description">
         {streammingData && streammingData.MovieDescription
           ? streammingData.MovieDescription
           : "description not found"}
-      </h3>
-      <h2>Cast:</h2>
-      <h3>
+      </h4>
+      <h2 className="cast-title">Cast</h2>
+      <h4 className="cast">
         {streammingData && streammingData.cast
           ? streammingData.cast
           : "cast not found"}
-      </h3>
-      <h2>IMDB Rating:</h2>
-      <h3>
+      </h4>
+      <img className="imdb-icon" src={imdbIcon} />
+      <h4 className="imdb-rating">
         {streammingData && streammingData.IMDBRating
           ? streammingData.IMDBRating
           : "IMDB Rating not found"}
-      </h3>
-      <h2>Directors:</h2>
-      <h3>
+      </h4>
+      <h2 className="directors-title">Directors</h2>
+      <h4 className="directors">
         {streammingData && streammingData.Directors
           ? streammingData.Directors
           : "no directors found"}
-      </h3>
-      <h2>Language: </h2>
-      <h3>
+      </h4>
+      <h2 className="language-title">Language </h2>
+      <h4 className="language">
         {streammingData && streammingData.Language
           ? streammingData.Language
-          : "no language found"}
-      </h3>
-      <h2>Release Date: </h2>
-      <h3>
+          : "no language  found"}
+      </h4>
+      <h2 className="releaseDate-title">Release Date </h2>
+      <h4 className="releaseDate">
         {streammingData && streammingData.ReleaseDate
           ? streammingData.ReleaseDate
           : "no release date found"}
-      </h3>
+      </h4>
     </div>
   );
 };

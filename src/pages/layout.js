@@ -6,6 +6,7 @@ import cancelIcon from "../assets/cancelIcon.png";
 import AllDataContextProvider from "../context/AllDataContextProvider";
 import AllDataContext from "../context/AllDataContext";
 import Search from "../components/search";
+import recorderIcon from "../assets/icons8-recorder-64.png";
 
 const Layout = () => {
   const navigate = useNavigate();
@@ -20,11 +21,9 @@ const Layout = () => {
 
   const setMenuOpen = () => {
     setmenuOpen(true);
-   
   };
   const setMenuClose = () => {
     setmenuOpen(false);
-    
   };
   const handelMouseEnter = () => {
     setisHovered(true);
@@ -38,7 +37,7 @@ const Layout = () => {
   };
   const userLogutCancel = () => {
     setLogout(false);
-    setmenuOpen(false)
+    setmenuOpen(false);
   };
   const logoutCall = async () => {
     try {
@@ -58,14 +57,12 @@ const Layout = () => {
     }
   };
 
-console.log("menu state from layout.js",menuOpen)
+  console.log("menu state from layout.js", menuOpen);
   return (
     <div className="rootHeaderContainer">
       <div className="headerContainer">
         <nav className="header">
-          <div
-          className="genreBtnContainerAndhamburgerMenuIcon-Container"
-          >
+          <div className="genreBtnContainerAndhamburgerMenuIcon-Container">
             <img
               className="hamburgerMenuIcon"
               src={menuIcon}
@@ -77,7 +74,7 @@ console.log("menu state from layout.js",menuOpen)
               onMouseLeave={handelMouseLeave}
             >
               <div className={`genreBtn${menuOpen ? "-blur" : ""}`}>Genre</div>
-              {isHovered & !menuOpen ?(
+              {isHovered & !menuOpen ? (
                 <div className="genreList">
                   {" "}
                   <ul>
@@ -223,7 +220,7 @@ console.log("menu state from layout.js",menuOpen)
                     </li>
                   </ul>
                 </div>
-              ):null}
+              ) : null}
             </div>
           </div>
 
@@ -283,11 +280,34 @@ console.log("menu state from layout.js",menuOpen)
       )}
 
       <div className={`${menuOpen ? "blur" : ""}`} onClick={setMenuClose}>
-        <div className={menuOpen?"disable-home":""}>
-        <Outlet />
+        <div className={menuOpen ? "disable-home" : ""}>
+          <Outlet />
         </div>
       </div>
-      <div>Common footer</div>
+      <div className="footer">
+        <div className="middle-footer-content">
+          <img className="recorder-icon" src={recorderIcon}></img>
+          movies<span className="moviesforyou">4u</span>Now
+        </div>
+        <div className="bottom-footer-content">
+          <span>
+            <NavLink className="bottom-footer-link">
+              Terms and privacy notice
+            </NavLink>
+          </span>
+          {"   "}
+          <span>
+            <NavLink className="bottom-footer-link">Send us feedback</NavLink>
+          </span>
+          {"   "}
+          <span>
+            <NavLink className="bottom-footer-link">help</NavLink>
+          </span>
+          <span style={{ color: "rgb(138, 138, 138)",marginLeft:'10px' }}>
+              © 2024-2024, movies4unow.online, inc. or its affiliates
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
