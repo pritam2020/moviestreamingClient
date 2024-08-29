@@ -62,46 +62,7 @@ const GenericCarousel = ({ data }) => {
             );
           }
         })}
-        {/* <div style={{ alignItems: "center" }}>
-          <img
-            src="https://via.placeholder.com/200x250"
-            alt="slide-1"
-            width="200"
-            height="250"
-          />
-        </div>
-        <div>
-          <img
-            src="https://via.placeholder.com/200x250"
-            alt="slide-2"
-            width="200"
-            height="250"
-          />
-        </div>
-        <div>
-          <img
-            src="https://via.placeholder.com/200x250"
-            alt="slide-3"
-            width="200"
-            height="250"
-          />
-        </div>
-        <div>
-          <img
-            src="https://via.placeholder.com/200x250"
-            alt="slide-4"
-            width="200"
-            height="250"
-          />
-        </div>
-        <div>
-          <img
-            src="https://via.placeholder.com/200x250"
-            alt="slide-5"
-            width="200"
-            height="250"
-          />
-        </div> */}
+        
       </Slider>
     </div>
   );
