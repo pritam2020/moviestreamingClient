@@ -38,7 +38,7 @@ const GenericCarousel = ({ data }) => {
     prevArrow: <SamplePrevArrow />,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 7,
     slidesToScroll: 2,
   };
 

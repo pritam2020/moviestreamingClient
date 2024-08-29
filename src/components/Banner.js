@@ -12,6 +12,10 @@ function Banner({ carouselData }) {
 
   useEffect(() => {
     setAllBannerData(carouselData);
+    if(carouselData){
+      setSingleBannerrData(carouselData.carousel1)
+    }
+    
   }, [carouselData]);
 
   const CarsouelSettings = {
@@ -23,7 +27,7 @@ function Banner({ carouselData }) {
     autoplay: true,
     autoplaySpeed: 4000,
     slidesToScroll: 1,
-    beforeChange: (current, next) => {
+    afterChange: (current) => {
       switch (current) {
         case 0:
           setSingleBannerrData(allBannerData.carousel1);
@@ -148,18 +152,6 @@ function Banner({ carouselData }) {
                 allBannerData
                   ? "https://localhost:3002/protected-route/carousel" +
                     allBannerData.carousel5.CarouselFile
-                  : "#"
-              }
-              alt="slide-1"
-            />
-          </div>
-          <div>
-            <img
-              className="banner-image"
-              src={
-                allBannerData
-                  ? "https://localhost:3002/protected-route/carousel" +
-                    allBannerData.carousel1.CarouselFile
                   : "#"
               }
               alt="slide-1"
