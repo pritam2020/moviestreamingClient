@@ -102,7 +102,7 @@ const Login = () => {
         </div>
         <div className="button-container">
           <div className="empty-div" style={{ width: "120px" ,marginRight:'5px'}}></div>
-          <button type="submit">Login</button>
+          <button className="login-button" type="submit">Login</button>
         </div>
       </form>
 
