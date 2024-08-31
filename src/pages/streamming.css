@@ -1,16 +1,44 @@
 .streamming-container {
-  background-color: #212121;
+  background: rgb(27, 27, 27);
+  background: linear-gradient(
+    245deg,
+    rgba(27, 27, 27, 1) 0%,
+    rgba(57, 40, 40, 1) 100%
+  );
   padding-left: 15px;
+  padding-top: 30px;
+}
+.movie-title-container{
+  display: flex;
+  justify-content:space-evenly;
+}
+.movie-title{
+  font-size: 60px;
+  font-weight: 400;
 }
 video {
   display: block;
   margin: auto;
+}
+.movie-info-flex-container {
+  margin-top: 50px;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+.left-flex-container {
+  padding: 20px;
+}
+.right-flex-container {
+  padding: 20px;
+ 
 }
 .description-title {
   font-size: xx-large;
 }
 .description {
   font-weight: 100;
+  width: 700px;
 }
 .cast-title {
 }
@@ -24,10 +52,10 @@ video {
   margin-right: 15px;
 }
 .imdb-rating {
-    font-weight: 500;
-    font-size: larger;
-    display:inline-block;
-    vertical-align:middle;
+  font-weight: 500;
+  font-size: larger;
+  display: inline-block;
+  vertical-align: middle;
 }
 .directors-title {
 }

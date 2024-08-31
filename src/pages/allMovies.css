@@ -1,20 +1,24 @@
-.allmovies-container{
-    min-height: 100vh;
-    background-color: #212121;
+.allmovies-container {
+  min-height: 100vh;
+  background: rgb(33, 33, 33);
+  background: linear-gradient(
+    245deg,
+    rgba(33, 33, 33, 1) 0%,
+    rgba(57, 40, 40, 1) 100%
+  );
 }
-.gridContainer{
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
+.gridContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }
-.griditem{
-    padding: 5px;
-    
+.griditem {
+  padding: 5px;
 }
-.thumbnailImg{
-    width: 200px;
-    height: 250px;
+.thumbnailImg {
+  width: 200px;
+  height: 250px;
 
-    &&:hover{
-        opacity: 0.7;
-    }
+  &&:hover {
+    opacity: 0.7;
+  }
 }
