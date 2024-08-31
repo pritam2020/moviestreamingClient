@@ -11,14 +11,16 @@ import AllDataContextProvider from "./context/AllDataContextProvider";
 import SendUsFeedback from "./pages/SendUsFeedback"
 import Help from "./pages/Help"
 import TermsAndPrivacy from "./pages/TermsAndPrivacy"
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
     return (
         <div className="app">
             <AllDataContextProvider>
             <Router>
-
+            <ScrollToTop/>
                 <Routes>
+                   
                     <Route path="/" element={<Login/>} />
                     <Route path="/signup"  element={<Signup/>} />
                     <Route path="/user"  element={<Layout/>}>
