@@ -21,6 +21,12 @@
   border-radius: 15px;
   background-color: #212121;
   border: 2px solid white;
+  font-weight: 600;
+  font-size: large;
+  &&:hover{
+    background-color: white;
+    color: black;
+  }
 }
 .left-banner-blur {
   position: absolute;
