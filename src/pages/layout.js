@@ -291,17 +291,17 @@ const Layout = () => {
         </div>
         <div className="bottom-footer-content">
           <span>
-            <NavLink className="bottom-footer-link">
+            <NavLink className="bottom-footer-link" to="/termsandprivacy">
               Terms and privacy notice
             </NavLink>
           </span>
           {"   "}
           <span>
-            <NavLink className="bottom-footer-link">Send us feedback</NavLink>
+            <NavLink className="bottom-footer-link" to="/sendusfeedback">Send us feedback</NavLink>
           </span>
           {"   "}
           <span>
-            <NavLink className="bottom-footer-link">help</NavLink>
+            <NavLink className="bottom-footer-link" to="/help">help</NavLink>
           </span>
           <span style={{ color: "rgb(138, 138, 138)",marginLeft:'10px' }}>
               © 2024-2024, movies4unow.online, inc. or its affiliates
