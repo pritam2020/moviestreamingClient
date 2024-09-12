@@ -19,6 +19,7 @@ const AllMovies = () => {
               <NavLink to="/user/streamming" state={{ dataArray }}>
                 <img
                   className="thumbnailImg"
+                  loading="lazy"
                   src={`https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/thumbnails/${movieObj.Thumbnail}`}
                 />
               </NavLink>

@@ -84,7 +84,7 @@ const Streaming = () => {
               ? streammingData.MovieDescription
               : "description not found"}
           </h4>
-          <img className="imdb-icon" src={imdbIcon} />
+          <img className="imdb-icon" src={imdbIcon}  loading="lazy"/>
           <h4 className="imdb-rating">
             {streammingData && streammingData.IMDBRating
               ? streammingData.IMDBRating

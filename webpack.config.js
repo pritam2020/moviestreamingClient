@@ -2,17 +2,16 @@ const path = require("path");
 const fs = require("fs");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 const dotenv = require("dotenv");
 dotenv.config();
-
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath:"/",
-
+    publicPath: "/",
   },
 
   module: {
@@ -46,6 +45,12 @@ module.exports = {
   },
 
   plugins: [
+    // new WorkboxPlugin.GenerateSW({
+    //   clientsClaim: true,
+    //   skipWaiting: true,
+    //   maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // Set this to 5 MB or another value as needed
+      
+    // }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
@@ -57,7 +62,6 @@ module.exports = {
       },
     }),
   ],
-
 
   devServer: {
     server: {

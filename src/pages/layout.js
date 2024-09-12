@@ -65,7 +65,9 @@ const Layout = () => {
           <div className="genreBtnContainerAndhamburgerMenuIcon-Container">
             <img
               className="hamburgerMenuIcon"
+              loading="lazy"
               src={menuIcon}
+              alt="menu"
               onClick={setMenuOpen}
             />
             <div
@@ -228,7 +230,9 @@ const Layout = () => {
             <div>
               <img
                 className="cancelIcon"
+                loading="lazy"
                 src={cancelIcon}
+                alt="cancel"
                 onClick={setMenuClose}
               />
             </div>
@@ -286,7 +290,12 @@ const Layout = () => {
       </div>
       <div className="footer">
         <div className="middle-footer-content">
-          <img className="recorder-icon" src={recorderIcon}></img>
+          <img
+            className="recorder-icon"
+            src={recorderIcon}
+            alt="icon"
+            loading="lazy"
+          ></img>
           movies<span className="moviesforyou">4u</span>Now
         </div>
         <div className="bottom-footer-content">
@@ -297,14 +306,18 @@ const Layout = () => {
           </span>
           {"   "}
           <span>
-            <NavLink className="bottom-footer-link" to="/sendusfeedback">Send us feedback</NavLink>
+            <NavLink className="bottom-footer-link" to="/sendusfeedback">
+              Send us feedback
+            </NavLink>
           </span>
           {"   "}
           <span>
-            <NavLink className="bottom-footer-link" to="/help">help</NavLink>
+            <NavLink className="bottom-footer-link" to="/help">
+              help
+            </NavLink>
           </span>
-          <span style={{ color: "rgb(138, 138, 138)",marginLeft:'10px' }}>
-              © 2024-2024, movies4unow.online, inc. or its affiliates
+          <span style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}>
+            © 2024-2024, movies4unow.online, inc. or its affiliates
           </span>
         </div>
       </div>

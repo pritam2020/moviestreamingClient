@@ -56,6 +56,7 @@ const GenericCarousel = ({ data }) => {
                     alt="slide-2"
                     width="150px"
                     height="200px"
+                    loading="lazy"
                   />
                 </NavLink>
               </div>

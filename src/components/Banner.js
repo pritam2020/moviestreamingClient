@@ -12,10 +12,9 @@ function Banner({ carouselData }) {
 
   useEffect(() => {
     setAllBannerData(carouselData);
-    if(carouselData){
-      setSingleBannerrData(carouselData.carousel1)
+    if (carouselData) {
+      setSingleBannerrData(carouselData.carousel1);
     }
-    
   }, [carouselData]);
 
   const CarsouelSettings = {
@@ -100,6 +99,7 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
+              loading="lazy"
               src={
                 allBannerData
                   ? "https://localhost:3002/protected-route/carousel" +
@@ -112,6 +112,7 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
+              loading="lazy"
               src={
                 allBannerData
                   ? "https://localhost:3002/protected-route/carousel" +
@@ -124,6 +125,7 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
+              loading="lazy"
               src={
                 allBannerData
                   ? "https://localhost:3002/protected-route/carousel" +
@@ -136,6 +138,7 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
+              loading="lazy"
               src={
                 allBannerData
                   ? "https://localhost:3002/protected-route/carousel" +
@@ -148,6 +151,7 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
+              loading="lazy"
               src={
                 allBannerData
                   ? "https://localhost:3002/protected-route/carousel" +

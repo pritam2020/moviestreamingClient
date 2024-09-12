@@ -10,6 +10,8 @@ import AllDataContextProvider from "../context/AllDataContextProvider";
 import AllDataContext from "../context/AllDataContext";
 import { NavbarCollapse } from "react-bootstrap";
 import Banner from "../components/Banner";
+import { Oval } from "react-loader-spinner";
+import Loading from "../components/Loading";
 
 const Home = () => {
   const [comedy, setComedy] = useState(null); // State to hold fetched data
@@ -34,6 +36,7 @@ const Home = () => {
   const navigate = useNavigate();
   useEffect(() => {
     // Define an asynchronous function to fetch data
+
     const fetchData = async () => {
       try {
         //---------------------------------------------------------authentication----------------------------
@@ -246,7 +249,7 @@ const Home = () => {
           const wararr = allData[2];
           const thrillerarr = allData[3];
           const fantasyarr = allData[4];
-         // console.log("comedy", comedyarr[0].Thumbnail);
+          // console.log("comedy", comedyarr[0].Thumbnail);
           setCarousel({
             carousel1: comedyarr[0],
             carousel2: romancearr[0],
@@ -286,7 +289,10 @@ const Home = () => {
       const sessionData = await session.json();
       console.log(session.ok, sessionData.loggedin);
       if (session.ok && sessionData.loggedin) {
-        fetchData();
+        fetchData()
+        // setTimeout(() => {
+        //   fetchData();
+        // }, 5000);
       } else {
         navigate("/");
       }
@@ -294,9 +300,7 @@ const Home = () => {
     checkSession();
   }, []);
 
- 
-
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div className="homeContainer">
@@ -377,7 +381,7 @@ const Home = () => {
         </div>
       </Slider> */}
 
-      <Banner carouselData={carousel}/>
+      <Banner carouselData={carousel} />
 
       <div className="genreCarousels">
         <div className="titleBar">
