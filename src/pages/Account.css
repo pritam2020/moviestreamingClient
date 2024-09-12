@@ -1,13 +1,98 @@
-.account-container{
+.account-container {
+  padding: 10px;
+  height: 100vh;
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account-container-header {
+  font-size: xx-large;
+  color: #616161;
+}
+
+.account-info-container {
+    width: 30%;
+}
+.first-name-container,
+.last-name-container,
+.user-name-container,
+.email-container,
+.country-container,
+.city-container,
+.pincode-container {
+  border-bottom: 1px solid #4e4e4e;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+.edit-account-info-button{
+    height: 15px;
+    width: 15px;
+    margin-top: 4px;
+    float: right;
+    opacity: 0.5;
+
+    &&:hover{
+        opacity: 1;
+        cursor:pointer;
+    }
+    &&:active{
+        background-color: black;
+        outline: 1px solid white;
+    }
+
+}
+.account-info-label{
+    width: 30%;
+    display: inline-block;
+    text-align: left;
+    color: #7c7c7c;
+}
+.account-info-value{
     padding: 10px;
-    height: 100vh;
-    background-color: #212121;
+    width: 70%;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: left;
+    border: 1px solid white;
+    color: #7c7c7c;
+}
+.account-page-buttons{
+    margin-top: 15px;
+    width :20%;
+    display: flex;
+    height: 150px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.account-info-save-button, .account-info-delete-account-button{
+    all:unset;
+    width: 100%;
+    background-color: #392828;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    outline:none;
+    &&:hover{
+       
+        outline: 1px solid rgb(153, 137, 137);
+    }
+    &&:active{
+        background-color: #493535;
+        outline: 1px solid rgb(153, 137, 137);
+    }
     
 }
-.account-container-header{
-    font-size: xx-large;
+.change-password{
+    font-style: italic;
+    color: #acacac;
+    &&:hover{
+        color: white;
+      
+    }
 }
-.account-container>div:not(:first-child){
-    margin: 15px;
-    font-size: xx-large;
-}
+
+
+
