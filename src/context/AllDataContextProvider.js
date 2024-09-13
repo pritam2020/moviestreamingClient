@@ -11,5 +11,4 @@ const AllDataContextProvider =({children})=>{
         </AllDataContext.Provider>
     )
 }
-
 export default AllDataContextProvider
