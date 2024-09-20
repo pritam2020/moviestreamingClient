@@ -13,11 +13,8 @@ const Layout = () => {
   const [menuOpen, setmenuOpen] = useState(false);
   const [isHovered, setisHovered] = useState(false); //used by the genre button
   const [logout, setLogout] = useState(false);
-  const { allData, setAllData } = useContext(AllDataContext);
+  const { allGenreDataContext, setAllGenreDataContext } = useContext(AllDataContext);
 
-  if (allData) {
-    console.log("rendering data from layout: ", allData);
-  }
 
   const setMenuOpen = () => {
     setmenuOpen(true);
@@ -57,7 +54,7 @@ const Layout = () => {
     }
   };
 
-  console.log("menu state from layout.js", menuOpen);
+  
   return (
     <div className="rootHeaderContainer">
       <div className="headerContainer">
@@ -84,7 +81,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Scifi", data: allData[13] }}
+                        state={{ genre: "Scifi", data: allGenreDataContext[13] }}
                         onClick={handelMouseLeave}
                       >
                         Sci-fi
@@ -94,7 +91,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Action", data: allData[6] }}
+                        state={{ genre: "Action", data: allGenreDataContext[6] }}
                         onClick={handelMouseLeave}
                       >
                         Action
@@ -104,7 +101,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Horror", data: allData[5] }}
+                        state={{ genre: "Horror", data: allGenreDataContext[5] }}
                         onClick={handelMouseLeave}
                       >
                         Horror
@@ -114,7 +111,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Comedy", data: allData[0] }}
+                        state={{ genre: "Comedy", data: allGenreDataContext[0] }}
                         onClick={handelMouseLeave}
                       >
                         Comedy
@@ -124,7 +121,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Drama", data: allData[11] }}
+                        state={{ genre: "Drama", data: allGenreDataContext[11] }}
                         onClick={handelMouseLeave}
                       >
                         Drama
@@ -134,7 +131,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Romance", data: allData[1] }}
+                        state={{ genre: "Romance", data: allGenreDataContext[1] }}
                         onClick={handelMouseLeave}
                       >
                         Romance
@@ -144,7 +141,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Documentary", data: allData[9] }}
+                        state={{ genre: "Documentary", data: allGenreDataContext[9] }}
                         onClick={handelMouseLeave}
                       >
                         Documentary
@@ -154,7 +151,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Adventure", data: allData[7] }}
+                        state={{ genre: "Adventure", data: allGenreDataContext[7] }}
                         onClick={handelMouseLeave}
                       >
                         Adventure
@@ -164,7 +161,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Award-winning", data: allData[12] }}
+                        state={{ genre: "Award-winning", data: allGenreDataContext[12] }}
                         onClick={handelMouseLeave}
                       >
                         Award-winning
@@ -174,7 +171,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Fantasy", data: allData[4] }}
+                        state={{ genre: "Fantasy", data: allGenreDataContext[4] }}
                         onClick={handelMouseLeave}
                       >
                         fantasy
@@ -184,7 +181,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Thriller", data: allData[3] }}
+                        state={{ genre: "Thriller", data: allGenreDataContext[3] }}
                         onClick={handelMouseLeave}
                       >
                         Thriller
@@ -194,7 +191,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "War", data: allData[2] }}
+                        state={{ genre: "War", data: allGenreDataContext[2] }}
                         onClick={handelMouseLeave}
                       >
                         War
@@ -204,7 +201,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Mystery", data: allData[8] }}
+                        state={{ genre: "Mystery", data: allGenreDataContext[8] }}
                         onClick={handelMouseLeave}
                       >
                         Mystery
@@ -214,7 +211,7 @@ const Layout = () => {
                       <NavLink
                         className="genreNavLink"
                         to="/user/allmovies"
-                        state={{ genre: "Biography", data: allData[10] }}
+                        state={{ genre: "Biography", data: allGenreDataContext[10] }}
                         onClick={handelMouseLeave}
                       >
                         Biograpny

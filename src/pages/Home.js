@@ -13,6 +13,7 @@ import Banner from "../components/Banner";
 import { Oval } from "react-loader-spinner";
 import Loading from "../components/Loading";
 import { fetchAllGenre } from "../utils/fetchAllGenre";
+import AllMovies from "./AllMovies";
 
 const Home = () => {
   const [comedy, setComedy] = useState(null); // State to hold fetched data
@@ -32,64 +33,91 @@ const Home = () => {
 
   const [loading, setLoading] = useState(true); // State to track loading status
   const [error, setError] = useState(null); // State to hold error information
-  const { allData, setAllData } = useContext(AllDataContext);
+  const { allGenreDataContext, setAllGenreDataContext } =
+    useContext(AllDataContext);
   const [carousel, setCarousel] = useState(null);
   const navigate = useNavigate();
 
-
-  
   useEffect(() => {
     // Define an asynchronous function to fetch data
 
     //fetching all the genre data and setting to the state
     const fetchData = async () => {
       try {
-        const fetchedData = await fetchAllGenre();
-        if (fetchedData.length != 14) {
-          throw new Error("error while fetching all the data...");
+        // Initialize allGenreData as an empty string
+        let allGenreData = "";
+    
+        // Check if allGenreDataContext (context data) is available
+        if (allGenreDataContext) {
+          allGenreData = allGenreDataContext;
+          console.log("Data exists in the context");
         } else {
-          const allParsedData = fetchedData.map(async (obj) => {
-            const parsedObj = await obj.json();
-            return parsedObj;
-          });
-          const allData = await Promise.all(allParsedData);
-          setAllData(allData);
-          const comedyarr = allData[0];
-          const romancearr = allData[1];
-          const wararr = allData[2];
-          const thrillerarr = allData[3];
-          const fantasyarr = allData[4];
-          // console.log("comedy", comedyarr[0].Thumbnail);
-          setCarousel({
-            carousel1: comedyarr[0],
-            carousel2: romancearr[0],
-            carousel3: wararr[0],
-            carousel4: thrillerarr[0],
-            carousel5: fantasyarr[0],
-          });
-          setComedy(allData[0]);
-          setRomance(allData[1]);
-          setWar(allData[2]);
-          setThriller(allData[3]);
-          setFantasy(allData[4]);
-          setHorror(allData[5]);
-          setAction(allData[6]);
-          setAdventure(allData[7]);
-          setMystery(allData[8]);
-          setDocumentary(allData[9]);
-          setBiography(allData[10]);
-          setDrama(allData[11]);
-          setAwardwinning(allData[12]);
-          setScifi(allData[13]);
+          // If no context data is available, fetch data from the API
+          console.log("Data does not exist in the context");
+    
+          // Fetch genre data
+          const fetchedData = await fetchAllGenre();
+    
+          // Check if the fetched data is an array and if it contains exactly 14 genres
+          if (Array.isArray(fetchedData) && fetchedData.length != 14) {
+            throw new Error("Error while fetching all the data...");
+          } else {
+            // Parse all the fetched data using .json() if it's valid
+            const allParsedData = fetchedData.map(async (obj) => {
+              const parsedObj = await obj.json();
+              return parsedObj;
+            });
+    
+            // Await and resolve all promises to get parsed data
+            allGenreData = await Promise.all(allParsedData);
+    
+            // Store the fetched genre data into the context for future use
+            setAllGenreDataContext(allGenreData);
+          }
         }
-        //----------------------------------scifi-----------------------------------------------------
+    
+        // Extract individual genre data from the array (first genre is comedy, second is romance, etc.)
+        const comedyarr = allGenreData[0];
+        const romancearr = allGenreData[1];
+        const wararr = allGenreData[2];
+        const thrillerarr = allGenreData[3];
+        const fantasyarr = allGenreData[4];
+    
+        // Set the carousel to show the first movie from each genre
+        setCarousel({
+          carousel1: comedyarr[0],
+          carousel2: romancearr[0],
+          carousel3: wararr[0],
+          carousel4: thrillerarr[0],
+          carousel5: fantasyarr[0],
+        });
+    
+        // Set state for each genre array individually
+        setComedy(allGenreData[0]); // Comedy movies
+        setRomance(allGenreData[1]); // Romance movies
+        setWar(allGenreData[2]);     // War movies
+        setThriller(allGenreData[3]); // Thriller movies
+        setFantasy(allGenreData[4]); // Fantasy movies
+        setHorror(allGenreData[5]);  // Horror movies
+        setAction(allGenreData[6]);  // Action movies
+        setAdventure(allGenreData[7]); // Adventure movies
+        setMystery(allGenreData[8]); // Mystery movies
+        setDocumentary(allGenreData[9]); // Documentary movies
+        setBiography(allGenreData[10]); // Biography movies
+        setDrama(allGenreData[11]);   // Drama movies
+        setAwardwinning(allGenreData[12]); // Award-winning movies
+        setScifi(allGenreData[13]);   // Sci-Fi movies
+    
       } catch (error) {
+        // Catch and handle any errors during the fetching or parsing process
         setError(error);
-        console.log(error); // Handle any errors
+        console.error(error); // Log the error for debugging
       } finally {
-        setLoading(false); // Set loading to false once fetching is done
+        // Once fetching is done, set loading to false to stop the loading spinner or indicator
+        setLoading(false);
       }
     };
+    
 
     //checking user session
     const checkSession = async () => {
@@ -98,7 +126,7 @@ const Home = () => {
         { credentials: "include" }
       );
       const sessionData = await session.json();
-      console.log(session.ok, sessionData.loggedin);
+      // console.log(session.ok, sessionData.loggedin);
       if (session.ok && sessionData.loggedin) {
         fetchData();
         // setTimeout(() => {
@@ -108,6 +136,10 @@ const Home = () => {
         navigate("/");
       }
     };
+
+
+
+    
     checkSession();
   }, []);
 

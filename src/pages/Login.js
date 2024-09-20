@@ -65,7 +65,7 @@ const Login = () => {
       })
       .catch((error) => {
         setErrorAlert(error.message);
-        console.log("error-state");
+      
         //console.log(error);
         console.log(errorAlert);
       });

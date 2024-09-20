@@ -17,7 +17,7 @@ const Streaming = () => {
         { credentials: "include" }
       );
       const sessionData = await session.json();
-      console.log(session.ok, sessionData.loggedin);
+      // console.log(session.ok, sessionData.loggedin);
       if (!session.ok && !sessionData.loggedin) {
         navigate("/");
       }
@@ -27,24 +27,24 @@ const Streaming = () => {
     const getstreamming = async () => {
       if (!streammingData) {
         const data = new URLSearchParams(location.search);
-        console.log("movieID");
+        // console.log("movieID");
         const movieID = data.get("movieID");
-        console.log(movieID);
+        // console.log(movieID);
         const streamingCall = await fetch(
           `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/moviedetails?movieID=${movieID}`,
           { credentials: "include" }
         );
         const streamingCallData = await streamingCall.json();
         if (streamingCall.ok && streamingCallData) {
-          console.log("data from streamming call");
-          console.log(streamingCallData);
+          // console.log("data from streamming call");
+          // console.log(streamingCallData);
           setStreammingData(streamingCallData[0]);
         }
       }
     };
     getstreamming();
-    console.log("streaming state...");
-    console.log(streammingData);
+    // console.log("streaming state...");
+    // console.log(streammingData);
   }, []);
 
   return (

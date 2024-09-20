@@ -3,10 +3,10 @@ import AllDataContext from "./AllDataContext";
 
 const AllDataContextProvider =({children})=>{
 
-    const [allData, setAllData]=useState(null);
+    const [allGenreDataContext, setAllGenreDataContext]=useState(null);
 
     return(
-        <AllDataContext.Provider value={{allData, setAllData}}>
+        <AllDataContext.Provider value={{allGenreDataContext, setAllGenreDataContext}}>
             {children}
         </AllDataContext.Provider>
     )

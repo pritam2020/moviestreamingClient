@@ -1,207 +1,211 @@
-const fetchAllGenre = async ()=>{
-    try{
-        //---------------------------------------------------------authentication----------------------------
-        const baseServerUrl = `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}`;
+const fetchAllGenre = async () => {
+  try {
+    //---------------------------------------------------------authentication----------------------------
+    const baseServerUrl = `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}`;
 
-        //-----------------------------------------------comedy--------------------------------------------
-        const comedyResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/comedy/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        //----------------------------------comedy-----------------------------------------------------
+    //-----------------------------------------------comedy--------------------------------------------
+    const comedyResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/comedy/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    //----------------------------------comedy-----------------------------------------------------
 
-        //-----------------------------------------------romance--------------------------------------------
-        const romanceResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/romance/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------romance--------------------------------------------
+    const romanceResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/romance/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------romance-----------------------------------------------------
+    //----------------------------------romance-----------------------------------------------------
 
-        //-----------------------------------------------war--------------------------------------------
-        const warResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/war/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        //----------------------------------war-----------------------------------------------------
+    //-----------------------------------------------war--------------------------------------------
+    const warResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/war/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    //----------------------------------war-----------------------------------------------------
 
-        //-----------------------------------------------thriller--------------------------------------------
-        const thrillerResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/thriller/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------thriller--------------------------------------------
+    const thrillerResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/thriller/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------thriller-----------------------------------------------------
+    //----------------------------------thriller-----------------------------------------------------
 
-        //-----------------------------------------------fantasy--------------------------------------------
-        const fantasyResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/fantasy/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------fantasy--------------------------------------------
+    const fantasyResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/fantasy/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------fantasy-----------------------------------------------------
+    //----------------------------------fantasy-----------------------------------------------------
 
-        //-----------------------------------------------horror--------------------------------------------
-        const horrorResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/horror/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------horror--------------------------------------------
+    const horrorResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/horror/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------horror-----------------------------------------------------
+    //----------------------------------horror-----------------------------------------------------
 
-        //-----------------------------------------------action--------------------------------------------
-        const actionResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/action/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------action--------------------------------------------
+    const actionResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/action/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------action-----------------------------------------------------
+    //----------------------------------action-----------------------------------------------------
 
-        //-----------------------------------------------adventure--------------------------------------------
-        const adventureResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/adventure/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------adventure--------------------------------------------
+    const adventureResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/adventure/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------adventure-----------------------------------------------------
+    //----------------------------------adventure-----------------------------------------------------
 
-        //-----------------------------------------------mystery--------------------------------------------
-        const mysteryResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/mystery/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------mystery--------------------------------------------
+    const mysteryResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/mystery/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------mystery-----------------------------------------------------
+    //----------------------------------mystery-----------------------------------------------------
 
-        //-----------------------------------------------documentary--------------------------------------------
-        const documentaryResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/documentary/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------documentary--------------------------------------------
+    const documentaryResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/documentary/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------documentary-----------------------------------------------------
+    //----------------------------------documentary-----------------------------------------------------
 
-        //-----------------------------------------------biography--------------------------------------------
-        const biographyResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/biography/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------biography--------------------------------------------
+    const biographyResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/biography/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------biography-----------------------------------------------------
+    //----------------------------------biography-----------------------------------------------------
 
-        //-----------------------------------------------drama--------------------------------------------
-        const dramaResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/drama/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------drama--------------------------------------------
+    const dramaResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/drama/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------drama-----------------------------------------------------
+    //----------------------------------drama-----------------------------------------------------
 
-        //-----------------------------------------------award-winning--------------------------------------------
-        const awardwinningResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/awardwinning/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    //-----------------------------------------------award-winning--------------------------------------------
+    const awardwinningResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/awardwinning/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-        //----------------------------------award-winning-----------------------------------------------------
+    //----------------------------------award-winning-----------------------------------------------------
 
-        //-----------------------------------------------scifi--------------------------------------------
-        const scifiResponse = fetch(
-          `${baseServerUrl}/protected-route/moviedetails/scifi/`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const fetchedData = await Promise.all([
-          comedyResponse,
-          romanceResponse,
-          warResponse,
-          thrillerResponse,
-          fantasyResponse,
-          horrorResponse,
-          actionResponse,
-          adventureResponse,
-          mysteryResponse,
-          documentaryResponse,
-          biographyResponse,
-          dramaResponse,
-          awardwinningResponse,
-          scifiResponse,
-        ]);
-        return fetchedData
+    //-----------------------------------------------scifi--------------------------------------------
+    const scifiResponse = fetch(
+      `${baseServerUrl}/protected-route/moviedetails/scifi/`,
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const fetchedData = await Promise.all([
+      comedyResponse,
+      romanceResponse,
+      warResponse,
+      thrillerResponse,
+      fantasyResponse,
+      horrorResponse,
+      actionResponse,
+      adventureResponse,
+      mysteryResponse,
+      documentaryResponse,
+      biographyResponse,
+      dramaResponse,
+      awardwinningResponse,
+      scifiResponse,
+    ]);
+
+    const successfetchedData = fetchedData.every((response) => response.ok);
+    if (successfetchedData) {
+      return fetchedData;
+    } else {
+      throw new Error("all data from fetched data are not okay");
     }
-catch(error){
+  } catch (error) {
     console.log(error);
-    return error
-}
-
-}
-export {fetchAllGenre}
+    return error;
+  }
+};
+export { fetchAllGenre };
