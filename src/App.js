@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Streaming from "./pages/Streamming";
-import Layout from "./pages/Layout";
+import Layout from "./pages/LLayout";
 import AllMovies from "./pages/AllMovies";
 import Account from "./pages/Account"
 import AllDataContextProvider from "./context/AllDataContextProvider";
