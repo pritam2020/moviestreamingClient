@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link, Routes, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/login";
-import Signup from "./pages/signup";
-import Streaming from "./pages/Streamming";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Streaming from "./pages/streamming";
 import Layout from "./pages/layout";
 import AllMovies from "./pages/AllMovies";
 import Account from "./pages/Account"

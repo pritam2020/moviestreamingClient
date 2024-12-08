@@ -5,7 +5,7 @@ import menuIcon from "../assets/menuIcon.png";
 import cancelIcon from "../assets/cancelIcon.png";
 import AllDataContextProvider from "../context/AllDataContextProvider";
 import AllDataContext from "../context/AllDataContext";
-import Search from "../components/search";
+import Search from "../components/Search";
 import recorderIcon from "../assets/icons8-recorder-64.png";
 
 const Layout = () => {
