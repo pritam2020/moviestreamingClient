@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Link, Routes, NavLink } from "r
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Streaming from "./pages/streamming";
-import Layout from "./pages/layout";
+import Streaming from "./pages/Streamming";
+import Layout from "./pages/Layout";
 import AllMovies from "./pages/AllMovies";
 import Account from "./pages/Account"
 import AllDataContextProvider from "./context/AllDataContextProvider";
