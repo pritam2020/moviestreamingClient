@@ -34,10 +34,30 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
 
+
+
+    - name: Set up server.key file
+      env: 
+        SERVER_KEY: ${{secrets.SERVER_KEY}}
+      run:
+        echo "$SERVER_KEY" > ~/server.key
+
+
+
+    - name: Set up server.crt file
+      env: 
+        SERVER_CERTIFICATE: ${{secrets.SERVER_CERTIFICATE}}
+      run:
+          echo "$SERVER_CERTIFICATE" > ~/server.crt
+
+
+
     - name: Add remote server to known hosts
       run: |
         ssh-keyscan -v 155.248.245.222 >> ~/.ssh/known_hosts
 
+
+        
     - name: Sync files to remote server
       run: |
         rsync -avz --delete-after ./dist/ opc@155.248.245.222:/home/opc/moviestreamingClient
