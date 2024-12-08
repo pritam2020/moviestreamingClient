@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
-import "./layout.css";
+import "./LLayout.css";
 import menuIcon from "../assets/menuIcon.png";
 import cancelIcon from "../assets/cancelIcon.png";
 import AllDataContextProvider from "../context/AllDataContextProvider";
