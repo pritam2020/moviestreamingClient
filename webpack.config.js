@@ -56,8 +56,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-        REACT_APP_SERVER: JSON.stringify(process.env.REACT_APP_SERVER),
-        REACT_APP_PORT: JSON.stringify(process.env.REACT_APP_PORT),
+        API_SERVER: JSON.stringify(process.env.API_SERVER),
+        API_SERVER_PORT: JSON.stringify(process.env.API_SERVER_PORT),
         // Add other environment variables as needed
       },
     }),

@@ -9,7 +9,7 @@ const Account = () => {
   useEffect(() => {
     const fetchAccountData = () => {
       const accoutRequest = fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/clientaccount`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/clientaccount`,
         {
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -34,7 +34,7 @@ const Account = () => {
 
     const checkSession = async () => {
       const session = await fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/checksession`,
         { credentials: "include" }
       );
       const sessionData = await session.json();

@@ -122,7 +122,7 @@ const Home = () => {
     //checking user session
     const checkSession = async () => {
       const session = await fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/checksession`,
         { credentials: "include" }
       );
       const sessionData = await session.json();
@@ -139,10 +139,10 @@ const Home = () => {
 
 
 
-    
+
     checkSession();
   }, []);
-
+console.log("history stack",window.history)
   if (loading) return <Loading />;
   if (error) return <div>Error: {error.message}</div>;
   return (

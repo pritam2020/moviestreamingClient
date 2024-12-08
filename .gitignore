@@ -2,8 +2,9 @@ node_modules/
 .vscode/
 *.png
 *.jpg
-server.crt
-server.csr
-server.key
+*.crt
+*.csr
+*.key
 .env
 dist
+service-worker.js

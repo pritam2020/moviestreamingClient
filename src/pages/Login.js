@@ -20,7 +20,7 @@ const Login = () => {
   const loginCall = async (username, password) => {
     try {
       const loginRequest = await fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/clientlogin`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/clientlogin`,
         {
           method: "POST",
           credentials: "include",
@@ -35,7 +35,7 @@ const Login = () => {
       );
 
       if (loginRequest.ok) {
-        navigate("/user/home");
+        navigate("/user/home",{replace:true});
       } else {
         const data = await loginRequest.json();
         setErrorAlert(JSON.stringify(data));
@@ -47,8 +47,9 @@ const Login = () => {
   };
 
   useEffect(() => {
+    
     fetch(
-      `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,
+      `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/checksession`,
       { credentials: "include" }
     )
       .then((response) => {
@@ -70,7 +71,7 @@ const Login = () => {
         console.log(errorAlert);
       });
   }, []);
-
+  console.log("in login page")
   return (
     <div className="login-container">
       <div className="form-outline">

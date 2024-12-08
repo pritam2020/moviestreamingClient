@@ -1,7 +1,7 @@
 const fetchAllGenre = async () => {
   try {
     //---------------------------------------------------------authentication----------------------------
-    const baseServerUrl = `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}`;
+    const baseServerUrl = `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}`;
 
     //-----------------------------------------------comedy--------------------------------------------
     const comedyResponse = fetch(

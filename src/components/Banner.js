@@ -102,7 +102,7 @@ function Banner({ carouselData }) {
               loading="lazy"
               src={
                 allBannerData
-                  ? "https://localhost:3002/protected-route/carousel" +
+                  ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
                     allBannerData.carousel1.CarouselFile
                   : "#"
               }
@@ -115,7 +115,7 @@ function Banner({ carouselData }) {
               loading="lazy"
               src={
                 allBannerData
-                  ? "https://localhost:3002/protected-route/carousel" +
+                  ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
                     allBannerData.carousel2.CarouselFile
                   : "#"
               }
@@ -128,7 +128,7 @@ function Banner({ carouselData }) {
               loading="lazy"
               src={
                 allBannerData
-                  ? "https://localhost:3002/protected-route/carousel" +
+                  ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
                     allBannerData.carousel3.CarouselFile
                   : "#"
               }
@@ -141,7 +141,7 @@ function Banner({ carouselData }) {
               loading="lazy"
               src={
                 allBannerData
-                  ? "https://localhost:3002/protected-route/carousel" +
+                  ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
                     allBannerData.carousel4.CarouselFile
                   : "#"
               }
@@ -154,7 +154,7 @@ function Banner({ carouselData }) {
               loading="lazy"
               src={
                 allBannerData
-                  ? "https://localhost:3002/protected-route/carousel" +
+                  ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
                     allBannerData.carousel5.CarouselFile
                   : "#"
               }

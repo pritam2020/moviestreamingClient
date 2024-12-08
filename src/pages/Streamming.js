@@ -13,7 +13,7 @@ const Streaming = () => {
   useEffect(() => {
     const checkSession = async () => {
       const session = await fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/checksession`,
         { credentials: "include" }
       );
       const sessionData = await session.json();
@@ -31,7 +31,7 @@ const Streaming = () => {
         const movieID = data.get("movieID");
         // console.log(movieID);
         const streamingCall = await fetch(
-          `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/moviedetails?movieID=${movieID}`,
+          `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/moviedetails?movieID=${movieID}`,
           { credentials: "include" }
         );
         const streamingCallData = await streamingCall.json();
@@ -68,7 +68,7 @@ const Streaming = () => {
       <br />
       <video width="1000px" height="auto" controls>
         <source
-          src={`https://localhost:3002/protected-route/videos/${
+          src={`https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/videos/${
             streammingData && streammingData.FileName
               ? streammingData.FileName
               : "no file name"

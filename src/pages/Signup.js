@@ -9,7 +9,7 @@ const Signup = () => {
   useEffect(() => {
     const checkSession = async () => {
       const session = await fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/checksession`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/checksession`,
         { credentials: "include" }
       );
       const sessionData = await session.json();
@@ -27,7 +27,7 @@ const Signup = () => {
     if (e.target.password.value === e.target.confirmPassword.value) {
       setPasswordCheck(true);
       fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/clientsignup`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/clientsignup`,
         {
           method: "POST",
           credentials: "include",

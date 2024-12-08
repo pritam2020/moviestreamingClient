@@ -15,7 +15,7 @@ const Search = ({ menuState }) => {
   const search = (e) => {
     e.preventDefault();
     fetch(
-      `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/moviedetails/search?SearchQuery=${searchParam}`,
+      `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/moviedetails/search?SearchQuery=${searchParam}`,
       {
         credentials: "include",
         headers: { "Content-Type": "application/json" },

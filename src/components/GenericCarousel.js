@@ -52,7 +52,7 @@ const GenericCarousel = ({ data }) => {
                 <NavLink to="/user/streamming" state={{ dataArray }}  >
                   <img
                     className="movieBanner"
-                    src={`https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/thumbnails${dataArray.Thumbnail}`}
+                    src={`https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/thumbnails${dataArray.Thumbnail}`}
                     alt="slide-2"
                     width="150px"
                     height="200px"

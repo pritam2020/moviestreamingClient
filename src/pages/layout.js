@@ -39,7 +39,7 @@ const Layout = () => {
   const logoutCall = async () => {
     try {
       const logoutRequest = await fetch(
-        `https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/clientlogout`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/clientlogout`,
         { credentials: "include" }
       );
       if (logoutRequest.ok) {

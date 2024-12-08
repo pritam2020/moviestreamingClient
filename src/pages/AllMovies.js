@@ -20,7 +20,7 @@ const AllMovies = () => {
                 <img
                   className="thumbnailImg"
                   loading="lazy"
-                  src={`https://${process.env.REACT_APP_SERVER}:${process.env.REACT_APP_PORT}/protected-route/thumbnails/${movieObj.Thumbnail}`}
+                  src={`https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/thumbnails/${movieObj.Thumbnail}`}
                 />
               </NavLink>
             </div>
