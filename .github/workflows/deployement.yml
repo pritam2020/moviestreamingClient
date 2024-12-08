@@ -40,8 +40,8 @@ jobs:
       env: 
         SERVER_KEY: ${{secrets.SERVER_KEY}}
       run:
-        echo "$SERVER_KEY" > ~/server.key
-        chmod 600 ~/server.key
+        echo "$SERVER_KEY" > ~/work/moviestreamingClient/moviestreamingClient/server.key
+        chmod 600 ~/work/moviestreamingClient/moviestreamingClient/server.key
 
 
 
@@ -49,8 +49,8 @@ jobs:
       env: 
         SERVER_CERTIFICATE: ${{secrets.SERVER_CERTIFICATE}}
       run:
-          echo "$SERVER_CERTIFICATE" > ~/server.crt
-          chmod 600 ~/server.crt
+          echo "$SERVER_CERTIFICATE" > ~/work/moviestreamingClient/moviestreamingClient/server.crt
+          chmod 600 ~/work/moviestreamingClient/moviestreamingClient/server.crt
 
 
 
