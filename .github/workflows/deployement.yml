@@ -41,6 +41,7 @@ jobs:
         SERVER_KEY: ${{secrets.SERVER_KEY}}
       run:
         echo "$SERVER_KEY" > ~/server.key
+        chmod 600 ~/server.key
 
 
 
@@ -49,6 +50,7 @@ jobs:
         SERVER_CERTIFICATE: ${{secrets.SERVER_CERTIFICATE}}
       run:
           echo "$SERVER_CERTIFICATE" > ~/server.crt
+          chmod 600 ~/server.crt
 
 
 
@@ -57,7 +59,7 @@ jobs:
         ssh-keyscan -v 155.248.245.222 >> ~/.ssh/known_hosts
 
 
-        
+
     - name: Sync files to remote server
       run: |
         rsync -avz --delete-after ./dist/ opc@155.248.245.222:/home/opc/moviestreamingClient
