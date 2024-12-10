@@ -37,8 +37,9 @@ jobs:
       env: 
         API_SERVER: ${{secrets.API_SERVER}}
         API_SERVER_PORT: ${{secrets.API_SERVER_PORT}}
-      run: echo "API_SERVER=$API_SERVER" > /home/runner/work/moviestreamingClient/.env
-           echo "API_SERVER_PORT=$API_SERVER_PORT" >> /home/runner/work/moviestreamingClient/.env
+      run: |
+            echo "API_SERVER=$API_SERVER" > /home/runner/work/moviestreamingClient/.env
+            echo "API_SERVER_PORT=$API_SERVER_PORT" >> /home/runner/work/moviestreamingClient/.env
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
