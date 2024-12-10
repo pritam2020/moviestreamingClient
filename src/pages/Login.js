@@ -74,6 +74,7 @@ const Login = () => {
   console.log("in login page")
   return (
     <div className="login-container">
+      <h1 style={{textAlign:"center"}}>verify</h1>
       <div className="form-outline">
       <h1 className="heading">Login</h1>
       <form className="login-form" onSubmit={handleSubmit}>

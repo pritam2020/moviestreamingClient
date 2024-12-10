@@ -35,8 +35,8 @@ jobs:
     
     - name: setting .env file
       env: 
-        API_SERVER: ${{env.API_SERVER}}
-        API_SERVER_PORT: ${{env.API_SERVER_PORT}}
+        API_SERVER: ${{secrets.API_SERVER}}
+        API_SERVER_PORT: ${{secrets.API_SERVER_PORT}}
       run: echo "API_SERVER=$API_SERVER" > /home/runner/work/moviestreamingClient/.env
            echo "API_SERVER_PORT=$API_SERVER_PORT" >> /home/runner/work/moviestreamingClient/.env
 
