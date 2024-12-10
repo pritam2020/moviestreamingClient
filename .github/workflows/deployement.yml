@@ -9,6 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
     - name: Checkout code
@@ -31,6 +32,13 @@ jobs:
           echo "$SERVER_CERTIFICATE" > /home/runner/work/moviestreamingClient/moviestreamingClient/server.crt
           chmod 600 /home/runner/work/moviestreamingClient/moviestreamingClient/server.crt
 
+    
+    - name: setting .env file
+      env: 
+        API_SERVER: ${{env.API_SERVER}}
+        API_SERVER_PORT: ${{env.API_SERVER_PORT}}
+      run: echo "API_SERVER=$API_SERVER" > /home/runner/work/moviestreamingClient/.env
+           echo "API_SERVER_PORT=$API_SERVER_PORT" >> /home/runner/work/moviestreamingClient/.env
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
