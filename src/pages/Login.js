@@ -74,7 +74,7 @@ const Login = () => {
   console.log("in login page")
   return (
     <div className="login-container">
-      <div className="form-outline">
+    <div className="form-outline">
       <h1 className="heading">Login</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="username-container">
@@ -84,7 +84,7 @@ const Login = () => {
             type="text"
             id="username"
             value={username}
-            placeholder="pleaser enter username"
+            placeholder="Please enter username"
             required
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -96,37 +96,35 @@ const Login = () => {
             type="password"
             id="password"
             value={password}
-            placeholder="please enter password"
+            placeholder="Please enter password"
             required
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="button-container">
-          <div className="empty-div" style={{ width: "120px" ,marginRight:'5px'}}></div>
-          <button className="login-button" type="submit">Login</button>
+          <button className="login-button" type="submit">
+            Login
+          </button>
         </div>
       </form>
-
+  
       <div className="signup-request-container">
-        <div className="empty-div" style={{ width: "120px" ,marginRight:'5px'}}></div>
-        <div className="signupText-container"> 
-          <span className="signupText">are you new ? </span>
-          <NavLink className="signUpLink" to="/signup">
-            <span className="signupRedirect"> SignUp</span>
+        <div className="signupText-container">
+          <span className="signupText">Are you new? </span>
+          <NavLink className="signupLink" to="/signup">
+            <span className="signupRedirect">Sign Up</span>
           </NavLink>
         </div>
       </div>
-
-      {errorAlert ? (
+  
+      {errorAlert && (
         <div className="error-container">
-          <div className="empty-div" style={{width:'120px'}}></div>
           <div className="errorDisplay">{JSON.stringify(errorAlert)}</div>
         </div>
-      ) : (
-        ""
       )}
-      </div>
     </div>
+  </div>
+  
   );
 };
 
