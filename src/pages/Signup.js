@@ -13,7 +13,6 @@ const Signup = () => {
         { credentials: "include" }
       );
       const sessionData = await session.json();
-      console.log(session.ok, sessionData.loggedin);
       if (session.ok && sessionData.loggedin) {
         navigate("/user/home");
       }
@@ -23,7 +22,6 @@ const Signup = () => {
 
   const signUp = (e) => {
     e.preventDefault();
-    //console.log(JSON.parse(e.target))
     if (e.target.password.value === e.target.confirmPassword.value) {
       setPasswordCheck(true);
       fetch(
@@ -40,9 +38,9 @@ const Signup = () => {
             EmailId: e.target.email.value,
             FirstName: e.target.firstName.value,
             LastName: e.target.lastName.value,
-            Country: e.target.country.value ? e.target.country.value : "",
-            City: e.target.city.value ? e.target.city.value : "",
-            PinCod: e.target.pincode.value ? e.target.pincode.value : "",
+            Country: e.target.country.value || "",
+            City: e.target.city.value || "",
+            PinCod: e.target.pincode.value || "",
           }),
         }
       )
@@ -59,101 +57,111 @@ const Signup = () => {
         });
     } else {
       setPasswordCheck(false);
-      console.log("password donot match");
+      console.log("password do not match");
     }
   };
 
   return (
     <div className="signup-container">
-      <h1 style={{textAlign:'center',padding:"20px"}}>Register</h1>
-      <div  className="signup-form-outline">
+      <h1 style={{ textAlign: 'center', padding: "20px" }}>Register</h1>
+      <div className="signup-form-outline">
         <form className="signup-form" onSubmit={signUp}>
           <div>
-          <label for="username">Username </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="username"
-            required
-          />
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="username"
+              required
+            />
           </div>
           <div>
-          <label for="firstName">first name </label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            placeholder="first name"
-            required
-          />
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="First name"
+              required
+            />
           </div>
           <div>
-          <label for="lastName">last name </label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            placeholder="last name"
-            required
-          />
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Last name"
+              required
+            />
           </div>
           <div>
-          <label for="email">email </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="email"
-            required
-          />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
           </div>
           <div>
-          <label for="country">country </label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            placeholder="country"
-          />
+            <label htmlFor="country">Country</label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              placeholder="Country"
+            />
           </div>
           <div>
-          <label for="city">city </label>
-          <input type="text" id="city" name="city" placeholder="city" />
-          <label for="pincode">pincode </label>
-          <input
-            type="text"
-            id="pincode"
-            name="pincode"
-            placeholder="pincode"
-          />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="City"
+            />
+            <label htmlFor="pincode">Pincode</label>
+            <input
+              type="text"
+              id="pincode"
+              name="pincode"
+              placeholder="Pincode"
+            />
           </div>
           <div>
-          <label for="password">password </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="password"
-            required
-          />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
           </div>
           <div>
-          <label for="confirmPassword"> confirm password </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="re-type password"
-            required
-          />
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Re-type password"
+              required
+            />
           </div>
           <br />
-          <input className="submit-button" type="submit" />
+          <input className="submit-button" type="submit" value="Sign Up" />
         </form>
         {!passwordCheck && (
-          <div className="passwordCheckAlert">password do not match</div>
+          <div className="passwordCheckAlert">Passwords do not match</div>
         )}
+        <div className="login-link">
+          <p>
+            Already have an account? <a href="/">Login</a>
+          </p>
+        </div>
       </div>
     </div>
   );

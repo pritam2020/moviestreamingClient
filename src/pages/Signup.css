@@ -1,47 +1,162 @@
+/* Container that holds the entire form */
 .signup-container {
-  padding-left: 25px;
+  padding: 0 20px;  /* Added horizontal padding for responsiveness */
   background-color: #212121;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  overflow-x: hidden; /* Ensure no horizontal scroll */
 }
+
 .signup-form-outline {
   padding: 30px;
   position: relative;
   margin: 0 auto;
-  width: fit-content;
+  width: 100%;
+  max-width: 500px; /* You can set the maximum width, it will adapt */
   border: 2px solid white;
+  border-radius: 8px;
+  background-color: #333;
+  box-sizing: border-box; /* Ensure that padding is inside the width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .signup-form {
-  width: fit-content;
+  width: 100%;
+  padding:10px;
 }
+
 .passwordCheckAlert {
   padding: 5px;
   background-color: red;
   color: whitesmoke;
+  margin-top: 10px;
+  border-radius: 4px;
+  text-align: center;
 }
+
+/* Submit Button */
 .submit-button {
-  padding: 10px;
+  padding: 12px;
   background-color: red;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+  font-size: medium;
+  transition: background-color 0.3s ease;
+  margin-top: 15px; /* Added margin to separate it from the form fields */
+}
+
+.submit-button:hover {
+  background-color: #e53935;
+}
+
+/* Form field styling */
+.signup-form-outline > form > div {
+  margin-bottom: 15px;
   width: 100%;
 }
 
-.signup-form-outline > form > div {
-  margin: 2px;
-  width: fit-content;
-}
 .signup-form-outline > form > div > label {
   display: block;
-  width: 175px;
-  font-size: small;
-  margin-top:5px
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #bbb;
 }
+
 .signup-form-outline > form > div > input {
   background-color: #212121;
   border: 2px solid white;
   display: block;
-  width: 175px;
+  width: 100%;  /* Ensures input field is 100% width of the container */
   font-size: medium;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.signup-form-outline > form > div > input:focus {
+  outline: none;
+  border-color: #e53935;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  /* On smaller screens (phones and small tablets), adjust the form container */
+  .signup-form-outline {
+    padding: 20px;
+    max-width: 90%;  /* 90% width instead of fixed width */
+  }
+
+  .signup-form-outline > form > div {
+    margin-bottom: 12px;  /* Reduced margin */
+  }
+
+  /* Smaller font sizes for mobile */
+  .signup-form-outline > form > div > label {
+    font-size: 12px;
+  }
+
+  .signup-form-outline > form > div > input {
+    font-size: 14px;
+    padding: 12px;  /* Larger input field for better touch usability */
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 14px;
+  }
+}
+
+/* For very small screens (extra small mobile devices) */
+@media (max-width: 480px) {
+  .signup-form-outline {
+    padding: 15px;
+    max-width: 95%;  /* Adjusted max width to avoid overflow */
+  }
+
+  .signup-form-outline > form > div > label {
+    font-size: 12px;
+  }
+
+  .signup-form-outline > form > div > input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .login-link {
+    font-size: 12px;
+  }
+}
+
+/* Login link style */
+.login-link {
+  margin-top: 20px;
+  color: #bbb;
+  font-style: italic;
+  text-align: center;
+}
+
+.login-link a {
+  color: #bbb;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+  color: #fff;
+  text-decoration: none;
 }
