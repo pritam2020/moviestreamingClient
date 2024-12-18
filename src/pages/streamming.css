@@ -1,74 +1,186 @@
-.streamming-container {
-  background: rgb(27, 27, 27);
-  background: linear-gradient(
-    245deg,
-    rgba(27, 27, 27, 1) 0%,
-    rgba(57, 40, 40, 1) 100%
-  );
-  padding-left: 15px;
-  padding-top: 30px;
-}
-.movie-title-container{
-  display: flex;
-  justify-content:space-evenly;
-}
-.movie-title{
-  font-size: 60px;
-  font-weight: 400;
-}
-video {
-  display: block;
-  margin: auto;
-}
-.movie-info-flex-container {
-  margin-top: 50px;
+@media only screen and (max-width: 480px) {
+  .video {
+    width: 100% !important;
+  }
+  .streamming-container {
+    background: rgb(27, 27, 27);
+    background: linear-gradient(
+      245deg,
+      rgba(27, 27, 27, 1) 0%,
+      rgba(57, 40, 40, 1) 100%
+    );
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 30px;
+  }
+  .movie-title-container {
+    display: flex;
+    justify-content: start;
+  }
 
-  display: flex;
-  justify-content: space-evenly;
+  .movie-title-container > div > h1 {
+    font-size: 20px;
+  }
+
+  .movie-title {
+    font-size: 60px;
+    font-weight: 400;
+  }
+  video {
+    display: block;
+    margin: auto;
+  }
+  .movie-info-flex-container {
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-evenly;
+  }
+
+  .left-flex-container {
+    padding: 5x;
+  }
+  .right-flex-container {
+    padding-top: 5px;
+  }
+  .description-title {
+    font-weight: normal;
+    font-size: x-large;
+  }
+  .description {
+    font-weight: lighter;
+    font-size: small;
+  }
+
+  .cast-title {
+    font-weight: normal;
+    font-size: large;
+  }
+  .cast {
+    font-size: small;
+    font-weight: lighter;
+  }
+  .imdb-icon {
+    margin-top: 5px;
+    height: 26px;
+    width: 26px;
+    vertical-align: middle;
+    margin-right: 15px;
+  }
+  .imdb-rating {
+    margin-top: 4px;
+    font-size: small;
+    font-weight: lighter;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .directors-title {
+    font-weight: normal;
+    font-size: large;
+  }
+  
+  .directors {
+    font-weight: lighter;
+    font-size: small;
+  }
+  .language-title {
+    font-weight: normal;
+    font-size: large;
+  }
+  .language {
+    font-weight: lighter;
+    font-size: small;
+  }
+  .releaseDate-title {
+    font-weight: normal;
+    font-size: large;
+  }
+  .releaseDate {
+    font-weight: lighter;
+    font-size: small;
+  }
 }
-.left-flex-container {
-  padding: 20px;
-}
-.right-flex-container {
-  padding: 20px;
- 
-}
-.description-title {
-  font-size: xx-large;
-}
-.description {
-  font-weight: 100;
-  width: 700px;
-}
-.cast-title {
-}
-.cast {
-  font-weight: 100;
-}
-.imdb-icon {
-  height: 56px;
-  width: 56px;
-  vertical-align: middle;
-  margin-right: 15px;
-}
-.imdb-rating {
-  font-weight: 500;
-  font-size: larger;
-  display: inline-block;
-  vertical-align: middle;
-}
-.directors-title {
-}
-.directors {
-  font-weight: 100;
-}
-.language-title {
-}
-.language {
-  font-weight: 100;
-}
-.releaseDate-title {
-}
-.releaseDate {
-  font-weight: 100;
+
+@media only screen and (min-width: 481px) {
+  .streamming-container {
+    background: rgb(27, 27, 27);
+    background: linear-gradient(
+      245deg,
+      rgba(27, 27, 27, 1) 0%,
+      rgba(57, 40, 40, 1) 100%
+    );
+    padding-left: 15px;
+    padding-top: 30px;
+  }
+  .movie-title-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .movie-title {
+    font-size: 60px;
+    font-weight: 400;
+  }
+  .movie-title-subconatiner {
+    margin-left: 20px;
+    padding: 20px;
+  }
+  .title-padding {
+    padding: 20px;
+  }
+  video {
+    display: block;
+    margin: auto;
+  }
+  .movie-info-flex-container {
+    margin-top: 50px;
+
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .left-flex-container {
+    padding: 20px;
+  }
+  .right-flex-container {
+    padding: 20px;
+  }
+  .description-title {
+    font-size: xx-large;
+  }
+  .description {
+    font-weight: 100;
+    width: 700px;
+  }
+  .cast-title {
+  }
+  .cast {
+    font-weight: 100;
+  }
+  .imdb-icon {
+    height: 56px;
+    width: 56px;
+    vertical-align: middle;
+    margin-right: 15px;
+  }
+  .imdb-rating {
+    font-weight: 500;
+    font-size: larger;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .directors-title {
+  }
+  .directors {
+    font-weight: 100;
+  }
+  .language-title {
+  }
+  .language {
+    font-weight: 100;
+  }
+  .releaseDate-title {
+  }
+  .releaseDate {
+    font-weight: 100;
+  }
 }

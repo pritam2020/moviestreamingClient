@@ -50,23 +50,24 @@ const Streaming = () => {
   return (
     <div className="streamming-container">
       <div className="movie-title-container">
-        <div style={{padding:'20px',marginLeft:'20px'}}>
+        <div className="movie-title-subcontainer" >
           <h1 className="movie-title">
             {streammingData && streammingData.MovieName
               ? streammingData.MovieName
               : "no movie name found"}
           </h1>
         </div>
-        <div style={{padding:'20px'}}> </div>
-        <div style={{padding:'20px'}}> </div>
-        <div style={{padding:'20px'}}> </div>
-        <div style={{padding:'20px'}}> </div>
-        <div style={{padding:'20px'}}> </div>
-        <div style={{padding:'20px'}}> </div>
-        <div style={{padding:'20px'}}> </div>
+        {window.innerWidth<=480?(""):(<div  className="title-padding"> </div>)}
+        {window.innerWidth<=480?(""):(<div  className="title-padding"> </div>)}
+        {window.innerWidth<=480?(""):(<div  className="title-padding"> </div>)}
+        {window.innerWidth<=480?(""):(<div  className="title-padding"> </div>)}
+        {window.innerWidth<=480?(""):(<div  className="title-padding"> </div>)}
+        {window.innerWidth<=480?(""):(<div  className="title-padding"> </div>)}
+        {window.innerWidth<=480?(""):(<div  className="title-padding"> </div>)}
+
       </div>
       <br />
-      <video width="1000px" height="auto" controls>
+      <video class="video" width="1000px" height="auto" controls>
         <source
           src={`https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/videos/${
             streammingData && streammingData.FileName
