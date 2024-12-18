@@ -225,6 +225,7 @@ console.log("history stack",window.history)
       </Slider> */}
 
       <Banner carouselData={carousel} />
+      <br/>
 
       <div className="genreCarousels">
         <div className="titleBar">

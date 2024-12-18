@@ -59,7 +59,7 @@ const GenericCarousel = ({ data }) => {
   };
 
   return (
-    <div className="carousel-container" style={{ marginLeft: "30px" }}>
+    <div className="carousel-container" style={{ marginLeft: slidesToShow===7?"30px":"5px" }}>
       <Slider {...GenericSettings}>
         {data.map((dataArray) => {
           if (counter <= 20) {

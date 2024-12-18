@@ -16,14 +16,12 @@ const Layout = () => {
   const [logout, setLogout] = useState(false);
   // const { allGenreDataContext, setAllGenreDataContext } = useContext(AllDataContext);
 
-
   const setMenuOpen = () => {
     setmenuOpen(true);
   };
   const setMenuClose = () => {
     setmenuOpen(false);
   };
-
 
   // const handelMouseEnter = () => {
   //   setisHovered(true);
@@ -57,12 +55,11 @@ const Layout = () => {
     }
   };
 
-  
   return (
     <div className="rootHeaderContainer">
       <div className="headerContainer">
         <nav className="header">
-          <HamburgerMenuGenre menustate={menuOpen} setMenuOpen={setMenuOpen}/>
+          <HamburgerMenuGenre menustate={menuOpen} setMenuOpen={setMenuOpen} />
           {/* <div className="genreBtnContainerAndhamburgerMenuIcon-Container">
             <img
               className="hamburgerMenuIcon"
@@ -301,25 +298,43 @@ const Layout = () => {
         </div>
         <div className="bottom-footer-content">
           <span>
-            <NavLink className="bottom-footer-link" to="/termsandprivacy">
+            <NavLink
+              className="bottom-footer-link footer-text"
+              to="/termsandprivacy"
+            >
               Terms and privacy notice
             </NavLink>
           </span>
           {"   "}
           <span>
-            <NavLink className="bottom-footer-link" to="/sendusfeedback">
+            <NavLink
+              className="bottom-footer-link footer-text"
+              to="/sendusfeedback"
+            >
               Send us feedback
             </NavLink>
           </span>
           {"   "}
           <span>
-            <NavLink className="bottom-footer-link" to="/help">
+            <NavLink className="bottom-footer-link  footer-text" to="/help">
               help
             </NavLink>
           </span>
-          <span style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}>
-            © 2024-2024, movies4unow.online, inc. or its affiliates
-          </span>
+          {window.innerWidth <= 480 ? (
+            <p
+              className="footer-text"
+              style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}
+            >
+              © 2024-2024, movies4unow.online, inc. or its affiliates
+            </p>
+          ) : (
+            <span
+              className="footer-text"
+              style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}
+            >
+              © 2024-2024, movies4unow.online, inc. or its affiliates
+            </span>
+          )}
         </div>
       </div>
     </div>

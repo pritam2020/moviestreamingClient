@@ -2,11 +2,20 @@
 
 
   
-
-.banner-image {
-  object-fit: cover;
-  height: 700px;
-  width: 100%;
-  object-position: top;
+@media only screen and (max-width:480px) {
+  .banner-image {
+    object-fit: cover;
+    height: 500px;
+    width: 100%;
+    object-position: top;
+  }
+}
+@media only screen and (min-width:481px) {
+  .banner-image {
+    object-fit: cover;
+    height: 700px;
+    width: 100%;
+    object-position: top;
+  }
 }
 

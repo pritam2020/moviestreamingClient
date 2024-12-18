@@ -1,17 +1,17 @@
 @media only screen and (max-width: 480px) {
   .emptyTopDiv {
-    height: 40%;
+    height: 20%;
   }
 
   .banner-movie-name {
     font-size: 25px;
-    padding-left: 10px;
+    padding-left: 25px;
   }
 
   .banner-movie-description {
     font-size: 10px;
     width: 37%;
-    padding-left: 10px;
+    padding-left: 25px;
     color: #adb5bd;
   }
 
@@ -19,7 +19,7 @@
     /* margin-left: 10px;
     margin-right: 10px; */
     align-self: center;
-    width: 90%;
+    width: 85%;
     margin-top: 20px;
     padding: 10px;
     border-radius: 15px;
@@ -39,7 +39,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 700px;
+    height: 500px;
     width: 100%;
     left: 0px;
     z-index: 1;
