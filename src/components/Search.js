@@ -8,12 +8,16 @@ const Search = ({ menuState }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+
+
+
   useEffect(() => {
     setMenuOpen(menuState);
   }, [menuState]);
 
   const search = (e) => {
     e.preventDefault();
+    if(searchParam){
     fetch(
       `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/moviedetails/search?SearchQuery=${searchParam}`,
       {
@@ -31,6 +35,7 @@ const Search = ({ menuState }) => {
       .then((data) => {
         navigate("/user/allmovies", { state: { genre: "", data: data } });
       });
+    }
   };
   // console.log("menu state from search.js",menuState)
   //console.log("menu state from search.js state variable",menuOpen)
@@ -43,6 +48,7 @@ const Search = ({ menuState }) => {
           placeholder="Serach..."
           onChange={(e) => setSearchParam(e.target.value)}
         />
+        
         <input
           type="image"
           className="searchIcon"

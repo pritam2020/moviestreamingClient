@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,15 +7,32 @@ import "./GenericCarousel.css";
 
 const GenericCarousel = ({ data }) => {
   const counter = 0;
-  // console.log("carousel data....")
- // console.log("data from generic carousel: ",data);
+  const [slidesToShow, setSlidesToShow] = useState(() => {
+    // Synchronously determine the initial value
+    return window.innerWidth <= 480 ? 4 : 7;
+  }); // console.log("carousel data....")
+  // console.log("data from generic carousel: ",data);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setSlidesToShow(4);
+      } else {
+        setSlidesToShow(7);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block"}}
+        style={{ ...style, display: slidesToShow === 4 ? "none" : "block" }}
         onClick={onClick}
       />
     );
@@ -27,35 +44,32 @@ const GenericCarousel = ({ data }) => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block"}}
+        style={{ ...style, display: slidesToShow === 4 ? "none" : "block" }}
         onClick={onClick}
       />
     );
   }
-  function goToSeeeAllPage() {}
   const GenericSettings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     infinite: true,
     speed: 500,
-    slidesToShow: 7,
+    slidesToShow: slidesToShow,
     slidesToScroll: 2,
   };
 
   return (
-    <div className="carousel-container" style={{ width: "95vw", marginLeft: "30px" }}>
+    <div className="carousel-container" style={{ marginLeft: "30px" }}>
       <Slider {...GenericSettings}>
         {data.map((dataArray) => {
           if (counter <= 20) {
             return (
-              <div className="link-container" key={dataArray.MovieID} > 
-                <NavLink to="/user/streamming" state={{ dataArray }}  >
+              <div className="link-container" key={dataArray.MovieID}>
+                <NavLink to="/user/streamming" state={{ dataArray }}>
                   <img
                     className="movieBanner"
                     src={`https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/thumbnails${dataArray.Thumbnail}`}
                     alt="slide-2"
-                    width="150px"
-                    height="200px"
                     loading="lazy"
                   />
                 </NavLink>
@@ -63,7 +77,6 @@ const GenericCarousel = ({ data }) => {
             );
           }
         })}
-        
       </Slider>
     </div>
   );

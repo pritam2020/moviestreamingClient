@@ -323,6 +323,7 @@ console.log("history stack",window.history)
         </div>
         <GenericCarousel key="mystery" data={mystery} />
       </div>
+      <br/>
     </div>
   );
 };

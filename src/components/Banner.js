@@ -3,12 +3,11 @@ import Slider from "react-slick";
 import "./Banner.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import BannerDataLayer from "./BannerDataLayer";
 
 function Banner({ carouselData }) {
   const [allBannerData, setAllBannerData] = useState(null);
   const [singleBannerData, setSingleBannerrData] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setAllBannerData(carouselData);
@@ -49,7 +48,7 @@ function Banner({ carouselData }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -66,35 +65,13 @@ function Banner({ carouselData }) {
     ],
   };
 
-  const onhandelWatchNow = (e, movie) => {
-    e.preventDefault();
-    navigate("/user/streamming", { state: { dataArray: singleBannerData } });
-  };
+ 
 
   // console.log("prop of Banner", carousel);
   return (
     <div>
       <div>
-        <div className="left-banner-blur">
-          <h1 className="banner-movie-name">
-            {singleBannerData ? singleBannerData.MovieName : ""}
-          </h1>
-          <p className="banner-movie-description">
-            {singleBannerData
-              ? singleBannerData.MovieDescription.substring(0, 453) + "..."
-              : ""}
-          </p>
-          {singleBannerData ? (
-            <button
-              className="watchnow-button"
-              onClick={(e) => onhandelWatchNow(e, singleBannerData)}
-            >
-              Watch now
-            </button>
-          ) : (
-            ""
-          )}
-        </div>
+       <BannerDataLayer bannerData={singleBannerData}/>
         <Slider {...CarsouelSettings}>
           <div>
             <img

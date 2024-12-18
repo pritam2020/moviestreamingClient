@@ -3,17 +3,18 @@ import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import "./LLayout.css";
 import menuIcon from "../assets/menuIcon.png";
 import cancelIcon from "../assets/cancelIcon.png";
-import AllDataContextProvider from "../context/AllDataContextProvider";
-import AllDataContext from "../context/AllDataContext";
+// import AllDataContextProvider from "../context/AllDataContextProvider";
+// import AllDataContext from "../context/AllDataContext";
 import Search from "../components/Search";
 import recorderIcon from "../assets/icons8-recorder-64.png";
+import HamburgerMenuGenre from "../components/HamburgerMenuGenre";
 
 const Layout = () => {
   const navigate = useNavigate();
   const [menuOpen, setmenuOpen] = useState(false);
-  const [isHovered, setisHovered] = useState(false); //used by the genre button
+  // const [isHovered, setisHovered] = useState(false); //used by the genre button
   const [logout, setLogout] = useState(false);
-  const { allGenreDataContext, setAllGenreDataContext } = useContext(AllDataContext);
+  // const { allGenreDataContext, setAllGenreDataContext } = useContext(AllDataContext);
 
 
   const setMenuOpen = () => {
@@ -22,12 +23,14 @@ const Layout = () => {
   const setMenuClose = () => {
     setmenuOpen(false);
   };
-  const handelMouseEnter = () => {
-    setisHovered(true);
-  };
-  const handelMouseLeave = () => {
-    setisHovered(false);
-  };
+
+
+  // const handelMouseEnter = () => {
+  //   setisHovered(true);
+  // };
+  // const handelMouseLeave = () => {
+  //   setisHovered(false);
+  // };
 
   const userLogout = () => {
     setLogout(true);
@@ -59,7 +62,8 @@ const Layout = () => {
     <div className="rootHeaderContainer">
       <div className="headerContainer">
         <nav className="header">
-          <div className="genreBtnContainerAndhamburgerMenuIcon-Container">
+          <HamburgerMenuGenre menustate={menuOpen} setMenuOpen={setMenuOpen}/>
+          {/* <div className="genreBtnContainerAndhamburgerMenuIcon-Container">
             <img
               className="hamburgerMenuIcon"
               loading="lazy"
@@ -221,7 +225,7 @@ const Layout = () => {
                 </div>
               ) : null}
             </div>
-          </div>
+          </div> */}
 
           <div className={`hamburgerMenu${menuOpen ? "-active" : ""}`}>
             <div>

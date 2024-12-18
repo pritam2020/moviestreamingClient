@@ -1,0 +1,162 @@
+@media only screen and (max-width: 480px){
+    .hamburgerMenuIcon {
+        z-index: 3;
+        margin-left: 10px;
+        width: 23px;
+        height: 30px;
+      }
+    
+    .genreBtnContainerAndhamburgerMenuIcon-Container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .genreBtnContainer {
+        margin-left: 25px;
+        position: relative;
+      }
+      .genreBtn {
+        font-size: small;
+        position: relative;
+        background-color: #212121;
+        height: fit-content;
+        width: fit-content;
+        border: 1px solid rgb(132, 138, 144);
+        padding: 3px 15px 5px 15px;
+        color: rgb(132, 138, 144);
+        border-radius: 15px;
+        text-align: center;
+        letter-spacing: 2px;
+        z-index: 2;
+      }
+      .genreBtn-blur {
+        position: relative;
+        pointer-events: none;
+        background-color: #212121;
+        height: fit-content;
+        width: fit-content;
+        border: 1px solid rgb(132, 138, 144);
+        padding: 5px 30px 7px 30px;
+        color: rgb(132, 138, 144);
+        border-radius: 15px;
+        text-align: center;
+        letter-spacing: 2px;
+        z-index: 2;
+        filter: blur(5px);
+      }
+      .genreBtn:hover {
+        cursor: pointer;
+        color: aliceblue;
+        border: 1px solid aliceblue;
+      }
+      
+      .genreList {
+        border-bottom:1px solid white;
+        border-left:1px solid white;
+        border-right:1px solid white;
+        border-radius: 17px;
+        position: absolute;
+        margin-left: -3px;
+        z-index: 1;
+        width: 120px;
+        height: auto;
+        margin-top: -37px;
+        background-color: #212121;
+        padding: 45px 10px 10px 10px;
+      }
+      .genreList > ul > li {
+        list-style-type: none;
+      }
+      
+      .genreList > ul > li > .genreNavLink {
+        text-decoration: none;
+        font-size: small;
+        color: rgb(132, 138, 144);
+      }
+      .genreList > ul > li > .genreNavLink:hover {
+        color: aliceblue;
+      }
+      
+}
+
+
+@media only screen and (min-width:481px){
+.hamburgerMenuIcon {
+    z-index: 3;
+    margin-left: 10px;
+    width: 30px;
+    height: 40px;
+  }
+
+.genreBtnContainerAndhamburgerMenuIcon-Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .genreBtnContainer {
+    margin-left: 150px;
+    position: relative;
+  }
+  .genreBtn {
+    position: relative;
+    background-color: #212121;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid rgb(132, 138, 144);
+    padding: 5px 30px 7px 30px;
+    color: rgb(132, 138, 144);
+    border-radius: 15px;
+    text-align: center;
+    letter-spacing: 2px;
+    z-index: 2;
+  }
+  .genreBtn-blur {
+    position: relative;
+    pointer-events: none;
+    background-color: #212121;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid rgb(132, 138, 144);
+    padding: 5px 30px 7px 30px;
+    color: rgb(132, 138, 144);
+    border-radius: 15px;
+    text-align: center;
+    letter-spacing: 2px;
+    z-index: 2;
+    filter: blur(5px);
+  }
+  .genreBtn:hover {
+    cursor: pointer;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+  }
+  
+  .genreList {
+    border-bottom:1px solid white;
+    border-left:1px solid white;
+    border-right:1px solid white;
+    border-radius: 17px;
+    position: absolute;
+    margin-left: -3px;
+    z-index: 1;
+    width: 120px;
+    height: auto;
+    margin-top: -37px;
+    background-color: #212121;
+    padding: 45px 10px 10px 10px;
+  }
+  .genreList > ul > li {
+    list-style-type: none;
+  }
+  
+  .genreList > ul > li > .genreNavLink {
+    text-decoration: none;
+    font-size: small;
+    color: rgb(132, 138, 144);
+  }
+  .genreList > ul > li > .genreNavLink:hover {
+    color: aliceblue;
+  }
+}

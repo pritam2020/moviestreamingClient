@@ -1,6 +1,24 @@
-.movieBanner:hover{
+@media only screen and (max-width: 480px) {
+  .movieBanner {
+    width: 80px;
+    height: 120px;
+  }
+  .movieBanner:hover {
     opacity: 0.7;
+  }
+  .link-container {
+    width: 200px;
+  }
 }
-.link-container{
-    width:200px
+@media only screen and (min-width: 481px) {
+  .movieBanner {
+    width: 150px;
+    height: 200px;
+  }
+  .movieBanner:hover {
+    opacity: 0.7;
+  }
+  .link-container {
+    width: 200px;
+  }
 }
