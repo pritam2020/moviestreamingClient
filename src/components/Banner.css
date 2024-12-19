@@ -4,8 +4,8 @@
   
 @media only screen and (max-width:480px) {
   .banner-image {
-    object-fit: cover;
-    height: 580px;
+    object-fit:cover;
+    height: 560px;
     width: 100%;
     object-position: top;
   }

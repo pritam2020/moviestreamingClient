@@ -24,12 +24,16 @@ function BannerDataLayer({ bannerData: singleBannerData }) {
           : ""}
       </p>
       {singleBannerData ? (
+        <><div className="middleEmptyDiv">
+
+        </div>
         <button
-          className="watchnow-button"
-          onClick={(e) => onhandelWatchNow(e, singleBannerData)}
-        >
-          Watch now
-        </button>
+        className="watchnow-button"
+        onClick={(e) => onhandelWatchNow(e, singleBannerData)}
+      >
+        Watch now
+      </button></>
+        
       ) : (
         ""
       )}
