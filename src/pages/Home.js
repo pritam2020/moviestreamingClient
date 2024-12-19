@@ -31,7 +31,7 @@ const Home = () => {
   const [adventure, setAdventure] = useState(null); // State to hold fetched data
   const [documentary, setDocumentary] = useState(null); // State to hold fetched data
   const [device, setDevice] = useState(() => {
-    return window.innerHeight <= 900 ? { device: "mobile", deviceHeight: window.innerHeight } : { device: "pc", deviceHeight: window.innerHeight }
+    return window.innerWidth <= 480 ? { device: "mobile", deviceHeight: window.innerHeight } : { device: "pc", deviceHeight: window.innerHeight }
   })
   const [loading, setLoading] = useState(true); // State to track loading status
   const [error, setError] = useState(null); // State to hold error information
