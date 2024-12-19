@@ -52,16 +52,17 @@
       }
       
       .genreList {
+        /* font-size: 3px; */
         border-bottom:1px solid white;
         border-left:1px solid white;
         border-right:1px solid white;
         border-radius: 17px;
         position: absolute;
-        margin-left: -3px;
+        margin-left: -5px;
         z-index: 1;
-        width: 120px;
+        width: 85px;
         height: auto;
-        margin-top: -37px;
+        margin-top: -30px;
         background-color: #212121;
         padding: 45px 10px 10px 10px;
       }
@@ -71,7 +72,7 @@
       
       .genreList > ul > li > .genreNavLink {
         text-decoration: none;
-        font-size: small;
+        font-size: x-small;
         color: rgb(132, 138, 144);
       }
       .genreList > ul > li > .genreNavLink:hover {

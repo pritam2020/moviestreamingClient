@@ -61,6 +61,7 @@
   }
 
   .left-banner-blur {
+    /* border: 5px outset rgba(255, 255, 255, 0.241); */
     position: absolute;
     display: flex;
     flex-direction: column;

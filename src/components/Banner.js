@@ -69,13 +69,13 @@ function Banner({ carouselData, device, deviceHeight }) {
   // console.log("prop of Banner", carousel);
   return (
     <div>
-      <div>
-        <BannerDataLayer bannerData={singleBannerData} device={device} deviceHeight={deviceHeight} />
+      <div >
+        <BannerDataLayer bannerData={singleBannerData} device={device} deviceHeight={deviceHeight-50} />
         <Slider {...CarsouelSettings}>
           <div>
             <img
               className="banner-image"
-              style={{ height: device === "mobile" ? deviceHeight : '' }}              loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight-50 : '' }}              loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
@@ -88,7 +88,7 @@ function Banner({ carouselData, device, deviceHeight }) {
           <div>
             <img
               className="banner-image"
-              style={{ height: device === "mobile" ? deviceHeight : '' }} 
+              style={{ height: device === "mobile" ? deviceHeight-50 : '' }} 
               loading="lazy"
               src={
                 allBannerData
@@ -102,7 +102,7 @@ function Banner({ carouselData, device, deviceHeight }) {
           <div>
             <img
               className="banner-image"
-              style={{ height: device === "mobile" ? deviceHeight : '' }} loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight-50 : '' }} loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
@@ -115,7 +115,7 @@ function Banner({ carouselData, device, deviceHeight }) {
           <div>
             <img
               className="banner-image"
-              style={{ height: device === "mobile" ? deviceHeight : '' }} loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight-50 : '' }} loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
@@ -128,7 +128,7 @@ function Banner({ carouselData, device, deviceHeight }) {
           <div>
             <img
               className="banner-image"
-              style={{ height: device === "mobile" ? deviceHeight : '' }} loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight-50 : '' }} loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
