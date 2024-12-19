@@ -30,7 +30,9 @@ const Home = () => {
   const [action, setAction] = useState(null); // State to hold fetched data
   const [adventure, setAdventure] = useState(null); // State to hold fetched data
   const [documentary, setDocumentary] = useState(null); // State to hold fetched data
-
+  const [device, setDevice] = useState(() => {
+    return window.innerHeight <= 900 ? { device: "mobile", deviceHeight: window.innerHeight } : { device: "pc", deviceHeight: window.innerHeight }
+  })
   const [loading, setLoading] = useState(true); // State to track loading status
   const [error, setError] = useState(null); // State to hold error information
   const { allGenreDataContext, setAllGenreDataContext } =
@@ -46,7 +48,7 @@ const Home = () => {
       try {
         // Initialize allGenreData as an empty string
         let allGenreData = "";
-    
+
         // Check if allGenreDataContext (context data) is available
         if (allGenreDataContext) {
           allGenreData = allGenreDataContext;
@@ -54,10 +56,10 @@ const Home = () => {
         } else {
           // If no context data is available, fetch data from the API
           console.log("Data does not exist in the context");
-    
+
           // Fetch genre data
           const fetchedData = await fetchAllGenre();
-    
+
           // Check if the fetched data is an array and if it contains exactly 14 genres
           if (Array.isArray(fetchedData) && fetchedData.length != 14) {
             throw new Error("Error while fetching all the data...");
@@ -67,22 +69,22 @@ const Home = () => {
               const parsedObj = await obj.json();
               return parsedObj;
             });
-    
+
             // Await and resolve all promises to get parsed data
             allGenreData = await Promise.all(allParsedData);
-    
+
             // Store the fetched genre data into the context for future use
             setAllGenreDataContext(allGenreData);
           }
         }
-    
+
         // Extract individual genre data from the array (first genre is comedy, second is romance, etc.)
         const comedyarr = allGenreData[0];
         const romancearr = allGenreData[1];
         const wararr = allGenreData[2];
         const thrillerarr = allGenreData[3];
         const fantasyarr = allGenreData[4];
-    
+
         // Set the carousel to show the first movie from each genre
         setCarousel({
           carousel1: comedyarr[0],
@@ -91,7 +93,7 @@ const Home = () => {
           carousel4: thrillerarr[0],
           carousel5: fantasyarr[0],
         });
-    
+
         // Set state for each genre array individually
         setComedy(allGenreData[0]); // Comedy movies
         setRomance(allGenreData[1]); // Romance movies
@@ -107,7 +109,7 @@ const Home = () => {
         setDrama(allGenreData[11]);   // Drama movies
         setAwardwinning(allGenreData[12]); // Award-winning movies
         setScifi(allGenreData[13]);   // Sci-Fi movies
-    
+
       } catch (error) {
         // Catch and handle any errors during the fetching or parsing process
         setError(error);
@@ -117,7 +119,7 @@ const Home = () => {
         setLoading(false);
       }
     };
-    
+
 
     //checking user session
     const checkSession = async () => {
@@ -141,91 +143,16 @@ const Home = () => {
 
 
     checkSession();
+
   }, []);
-console.log("history stack",window.history)
+  console.log("history stack", window.history)
   if (loading) return <Loading />;
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div className="homeContainer">
-      {/* <div className="left-banner-blur"></div> */}
-      {/* <Slider {...CarsouelSettings} className="banner">
-        <div style={{ position: "relative" }}>
-          <NavLink to="/user/streamming" state={{ dataArray: comedy[0] }}>
-            <img
-              style={{
-                objectFit: "cover",
-                height: "700px",
-                width: "100%",
-                objectPosition:"top"
-              }}
-              src={carousel.carousel1 ? carousel.carousel1 : "#"}
-              alt="slide-1"
-            />
-            <div style={{ position: "absolute", top: "200px", zIndex: "12" }}>
-              hello
-            </div>
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/user/streamming" d state={{ dataArray: romance[0] }}>
-            <img
-              style={{
-                objectFit: "cover",
-                height: "700px",
-                width: "100%",
-                objectPosition: "top",
-              }}
-              src={carousel.carousel2 ? carousel.carousel2 : "#"}
-              alt="slide-2"
-            />
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/user/streamming" d state={{ dataArray: war[0] }}>
-            <img
-              style={{
-                objectFit: "cover",
-                height: "700px",
-                width: "100%",
-                objectPosition: "top",
-              }}
-              src={carousel.carousel3 ? carousel.carousel3 : "#"}
-              alt="slide-3"
-            />
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/user/streamming" d state={{ dataArray: thriller[0] }}>
-            <img
-              style={{
-                objectFit: "cover",
-                height: "700px",
-                width: "100%",
-                objectPosition: "top",
-              }}
-              src={carousel.carousel4 ? carousel.carousel4 : "#"}
-              alt="slide-4"
-            />
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/user/streamming" d state={{ dataArray: fantasy[0] }}>
-            <img
-              style={{
-                objectFit: "cover",
-                height: "700px",
-                width: "100%",
-                objectPosition: "top",
-              }}
-              src={carousel.carousel5 ? carousel.carousel5 : "#"}
-              alt="slide-5"
-            />
-          </NavLink>
-        </div>
-      </Slider> */}
 
-      <Banner carouselData={carousel} />
-      <br/>
+      <Banner carouselData={carousel} device={device.device} deviceHeight={device.deviceHeight}/>
+      <br />
 
       <div className="genreCarousels">
         <div className="titleBar">
@@ -324,7 +251,7 @@ console.log("history stack",window.history)
         </div>
         <GenericCarousel key="mystery" data={mystery} />
       </div>
-      <br/>
+      <br />
     </div>
   );
 };

@@ -16,6 +16,7 @@
   .movie-title-container {
     display: flex;
     justify-content: start;
+    opacity: 0.6;
   }
 
   .movie-title-container > div > h1 {
@@ -47,19 +48,24 @@
   .description-title {
     font-weight: normal;
     font-size: x-large;
+    opacity: 0.6;
   }
   .description {
     font-weight: lighter;
     font-size: small;
+    opacity: 0.5;
   }
 
   .cast-title {
+    opacity: 0.6;
     font-weight: normal;
     font-size: large;
   }
   .cast {
     font-size: small;
-    font-weight: lighter;
+    font-weight: lighter;   
+    opacity: 0.5;
+
   }
   .imdb-icon {
     margin-top: 5px;
@@ -69,6 +75,7 @@
     margin-right: 15px;
   }
   .imdb-rating {
+    opacity: 0.5;
     margin-top: 4px;
     font-size: small;
     font-weight: lighter;
@@ -78,25 +85,32 @@
   .directors-title {
     font-weight: normal;
     font-size: large;
+    opacity: 0.6;
+
   }
   
   .directors {
+    opacity: 0.5;
     font-weight: lighter;
     font-size: small;
   }
   .language-title {
+    opacity: 0.6;
     font-weight: normal;
     font-size: large;
   }
   .language {
+    opacity: 0.5;
     font-weight: lighter;
     font-size: small;
   }
   .releaseDate-title {
+    opacity: 0.6;
     font-weight: normal;
     font-size: large;
   }
   .releaseDate {
+    opacity: 0.5;
     font-weight: lighter;
     font-size: small;
   }
@@ -116,6 +130,7 @@
   .movie-title-container {
     display: flex;
     justify-content: space-evenly;
+    opacity: 0.6;
   }
   .movie-title {
     font-size: 60px;
@@ -145,15 +160,19 @@
     padding: 20px;
   }
   .description-title {
+    opacity: 0.6;
     font-size: xx-large;
   }
   .description {
+    opacity: 0.5;
     font-weight: 100;
     width: 700px;
   }
   .cast-title {
+    opacity: 0.6;
   }
   .cast {
+    opacity: 0.5;
     font-weight: 100;
   }
   .imdb-icon {
@@ -163,24 +182,31 @@
     margin-right: 15px;
   }
   .imdb-rating {
+    opacity: 0.5;
     font-weight: 500;
     font-size: larger;
     display: inline-block;
     vertical-align: middle;
   }
   .directors-title {
+    opacity: 0.6;
   }
   .directors {
+    opacity: 0.5;
     font-weight: 100;
   }
   .language-title {
+    opacity: 0.6;
   }
   .language {
+    opacity: 0.5;
     font-weight: 100;
   }
   .releaseDate-title {
+    opacity: 0.6;
   }
   .releaseDate {
+    opacity: 0.5;
     font-weight: 100;
   }
 }

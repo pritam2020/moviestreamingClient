@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import BannerDataLayer from "./BannerDataLayer";
 
-function Banner({ carouselData }) {
+function Banner({ carouselData, device, deviceHeight }) {
   const [allBannerData, setAllBannerData] = useState(null);
   const [singleBannerData, setSingleBannerrData] = useState(null);
 
@@ -65,22 +65,21 @@ function Banner({ carouselData }) {
     ],
   };
 
- 
 
   // console.log("prop of Banner", carousel);
   return (
     <div>
       <div>
-       <BannerDataLayer bannerData={singleBannerData}/>
+        <BannerDataLayer bannerData={singleBannerData} device={device} deviceHeight={deviceHeight} />
         <Slider {...CarsouelSettings}>
           <div>
             <img
               className="banner-image"
-              loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight : '' }}              loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
-                    allBannerData.carousel1.CarouselFile
+                  allBannerData.carousel1.CarouselFile
                   : "#"
               }
               alt="slide-1"
@@ -89,11 +88,12 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
+              style={{ height: device === "mobile" ? deviceHeight : '' }} 
               loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
-                    allBannerData.carousel2.CarouselFile
+                  allBannerData.carousel2.CarouselFile
                   : "#"
               }
               alt="slide-1"
@@ -102,11 +102,11 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
-              loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight : '' }} loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
-                    allBannerData.carousel3.CarouselFile
+                  allBannerData.carousel3.CarouselFile
                   : "#"
               }
               alt="slide-1"
@@ -115,11 +115,11 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
-              loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight : '' }} loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
-                    allBannerData.carousel4.CarouselFile
+                  allBannerData.carousel4.CarouselFile
                   : "#"
               }
               alt="slide-1"
@@ -128,11 +128,11 @@ function Banner({ carouselData }) {
           <div>
             <img
               className="banner-image"
-              loading="lazy"
+              style={{ height: device === "mobile" ? deviceHeight : '' }} loading="lazy"
               src={
                 allBannerData
                   ? `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/carousel` +
-                    allBannerData.carousel5.CarouselFile
+                  allBannerData.carousel5.CarouselFile
                   : "#"
               }
               alt="slide-1"

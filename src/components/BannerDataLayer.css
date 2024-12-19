@@ -2,8 +2,29 @@
   .emptyTopDiv {
     height: 50%;
   }
-  .middleEmptyDiv {
-    height: 6%;
+  .movieAudio {
+    margin-top: 5px;
+    padding-left: 25px;
+    font-size: small;
+    opacity: 0.5;
+  }
+  .middleDiv {
+    align-items: center;
+    height: 5%;
+    padding-left: 25px;
+    font-size: 14px;
+    display: flex;
+    color: #ffffff7c;
+  }
+  
+  .imdbIcon {
+    height: 25px;
+    width: 25px;
+    margin-right: 6px;
+  }
+  .genre {
+    margin-left: 15px;
+    opacity: 0.5;
   }
   .banner-movie-name {
     font-size: 20px;
@@ -17,12 +38,14 @@
     color: #adb5bd;
     height: 70px;
     overflow: hidden;
+    opacity: 0.7;
   }
 
   .watchnow-button {
     /* margin-left: 10px;
     margin-right: 10px; */
     align-self: center;
+    margin-top: 7px;
     width: 85%;
     padding: 10px;
     border-radius: 15px;
@@ -76,17 +99,44 @@
     width: 100%;
     object-position: top;
   }
-
+  .emptyTopDiv {
+    height: 30%;
+  }
   .banner-movie-name {
-    font-size: 60px;
+    font-size: 35px;
+    padding-left: 10px;
   }
 
   .banner-movie-description {
     width: 37%;
     padding-left: 10px;
     color: #adb5bd;
+    height: 90px;
+    overflow: hidden;
   }
-
+  .movieAudio {
+    margin-top: 5px;
+    padding-left: 10px;
+    font-size: large;
+    opacity: 0.5;
+  }
+  .middleDiv {
+    align-items: center;
+    height: 6%;
+    padding-left: 10px;
+    font-size: 18px;
+    display: flex;
+    color: #ffffff7c;
+  }
+  .imdbIcon {
+    height: 35px;
+    width: 35px;
+    margin-right: 6px;
+  }
+  .genre {
+    margin-left: 15px;
+    opacity: 0.5;
+  }
   .watchnow-button {
     width: 25%;
     margin-top: 20px;
