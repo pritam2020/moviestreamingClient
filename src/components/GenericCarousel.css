@@ -11,6 +11,10 @@
   }
 }
 @media only screen and (min-width: 481px) {
+  .carousel-container{
+    /* width: 100%; */
+    margin-right: 30px;
+  }
   .movieBanner {
     width: 150px;
     height: 200px;

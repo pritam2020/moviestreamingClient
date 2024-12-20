@@ -67,7 +67,7 @@ const Streaming = () => {
 
       </div>
       <br />
-      <video class="video" width="1000px" height="auto" controls>
+      <video className="video" width="1000px" height="auto" controls>
         <source
           src={`https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/videos/${
             streammingData && streammingData.FileName
