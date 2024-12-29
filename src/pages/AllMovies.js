@@ -8,9 +8,8 @@ const AllMovies = () => {
 
   return (
     <div className="allmovies-container">
-      <div>
-        <h1>{!genre ? "Results" : genre}</h1>
-      </div>
+      <div className="parentgridContainer">
+      <div className="title">{!genre ? "Results" : genre}</div>
       <div className="gridContainer">
         {data.map((movieObj) => {
           const dataArray = movieObj;
@@ -27,6 +26,8 @@ const AllMovies = () => {
           );
         })}
       </div>
+      </div>
+     
     </div>
   );
 };
