@@ -3,44 +3,35 @@ import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import "./LLayout.css";
 import menuIcon from "../assets/menuIcon.png";
 import cancelIcon from "../assets/cancelIcon.png";
-// import AllDataContextProvider from "../context/AllDataContextProvider";
-// import AllDataContext from "../context/AllDataContext";
+import AllDataContext from "../context/AllDataContext";
 import Search from "../components/Search";
 import recorderIcon from "../assets/icons8-recorder-64.png";
 import HamburgerMenuGenre from "../components/HamburgerMenuGenre";
+import { fetchAllGenre } from "../utils/fetchAllGenre";
 
 const Layout = () => {
   const navigate = useNavigate();
-  const [menuOpen, setmenuOpen] = useState(false);
-  // const [isHovered, setisHovered] = useState(false); //used by the genre button
-  const [logout, setLogout] = useState(false);
-  // const { allGenreDataContext, setAllGenreDataContext } = useContext(AllDataContext);
+  const [menuState, setmenuState] = useState(false);
+  const [logoutstate, setLogoutstate] = useState(false);
+  const { allGenreDataContext, setAllGenreDataContext } = useContext(AllDataContext)
 
   const setMenuOpen = () => {
-    setmenuOpen(true);
+    setmenuState(true);
   };
   const setMenuClose = () => {
-    setmenuOpen(false);
+    setmenuState(false);
   };
-
-  // const handelMouseEnter = () => {
-  //   setisHovered(true);
-  // };
-  // const handelMouseLeave = () => {
-  //   setisHovered(false);
-  // };
-
-  const userLogout = () => {
-    setLogout(true);
+  const openLogoutDialogue = () => {
+    setLogoutstate(true);
   };
-  const userLogutCancel = () => {
-    setLogout(false);
-    setmenuOpen(false);
+  const closeLogoutDialogue = () => {
+    setLogoutstate(false);
+    setmenuState(false);
   };
-  const logoutCall = async () => {
+  const logout = async () => {
     try {
       const logoutRequest = await fetch(
-        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/clientlogout`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/user/protected-route/logout`,
         { credentials: "include" }
       );
       if (logoutRequest.ok) {
@@ -55,177 +46,28 @@ const Layout = () => {
     }
   };
 
+  useEffect(() => {
+    const setContext = async () => {
+      try {
+        const alldata = await fetchAllGenre();
+        setAllGenreDataContext(alldata);
+      } catch (err) {
+        console.log(err)
+      }
+
+    }
+    setContext()
+
+
+  },[])
   return (
     <div className="rootHeaderContainer">
       <div className="headerContainer">
         <nav className="header">
-          <HamburgerMenuGenre menustate={menuOpen} setMenuOpen={setMenuOpen} />
-          {/* <div className="genreBtnContainerAndhamburgerMenuIcon-Container">
-            <img
-              className="hamburgerMenuIcon"
-              loading="lazy"
-              src={menuIcon}
-              alt="menu"
-              onClick={setMenuOpen}
-            />
-            <div
-              className="genreBtnContainer"
-              onMouseEnter={handelMouseEnter}
-              onMouseLeave={handelMouseLeave}
-            >
-              <div className={`genreBtn${menuOpen ? "-blur" : ""}`}>Genre</div>
-              {isHovered & !menuOpen ? (
-                <div className="genreList">
-                  {" "}
-                  <ul>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Scifi", data: allGenreDataContext[13] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Sci-fi
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Action", data: allGenreDataContext[6] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Action
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Horror", data: allGenreDataContext[5] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Horror
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Comedy", data: allGenreDataContext[0] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Comedy
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Drama", data: allGenreDataContext[11] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Drama
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Romance", data: allGenreDataContext[1] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Romance
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Documentary", data: allGenreDataContext[9] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Documentary
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Adventure", data: allGenreDataContext[7] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Adventure
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Award-winning", data: allGenreDataContext[12] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Award-winning
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Fantasy", data: allGenreDataContext[4] }}
-                        onClick={handelMouseLeave}
-                      >
-                        fantasy
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Thriller", data: allGenreDataContext[3] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Thriller
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "War", data: allGenreDataContext[2] }}
-                        onClick={handelMouseLeave}
-                      >
-                        War
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Mystery", data: allGenreDataContext[8] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Mystery
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        className="genreNavLink"
-                        to="/user/allmovies"
-                        state={{ genre: "Biography", data: allGenreDataContext[10] }}
-                        onClick={handelMouseLeave}
-                      >
-                        Biograpny
-                      </NavLink>
-                    </li>
-                  </ul>
-                </div>
-              ) : null}
-            </div>
-          </div> */}
+          <HamburgerMenuGenre menuState={menuState} setMenuOpen={setMenuOpen} />
 
-          <div className={`hamburgerMenu${menuOpen ? "-active" : ""}`}>
-            <div>
+          <div className={`hamburgerMenu${menuState ? "-active" : ""}`} onClick={() => { if (logoutstate) { closeLogoutDialogue() } }}>
+            <div className={logoutstate ? "blur" : ""}>
               <img
                 className="cancelIcon"
                 loading="lazy"
@@ -234,45 +76,50 @@ const Layout = () => {
                 onClick={setMenuClose}
               />
             </div>
-            <ul className="hamburgerMenuList">
-              <li>
-                <NavLink
-                  className="navLink"
-                  to="/user/account"
-                  onClick={setMenuClose}
-                >
-                  Account
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="navLink"
-                  to="/user/home"
-                  onClick={setMenuClose}
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li onClick={userLogout}>
-                <NavLink className="navLink" to="#">
-                  Logout
-                </NavLink>
-              </li>
-            </ul>
+            <div className={logoutstate ? "blur" : ""}>
+              <ul className="hamburgerMenuList">
+                <li>
+                  <NavLink
+                    className="navLink"
+                    to="/user/account"
+                    onClick={setMenuClose}
+                  >
+                    Account
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className="navLink"
+                    to="/user/home"
+                    onClick={setMenuClose}
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li onClick={openLogoutDialogue}>
+                  <NavLink className="navLink" to="#">
+                    Logout
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
           </div>
-          <Search menuState={menuOpen} />
+          <Search menuState={menuState} />
         </nav>
       </div>
-      {logout ? (
+
+
+
+      {logoutstate ? (
         <div className="logoutAlert">
           <div className="logoutAlertText">
             Are you sure you want to logout ?
           </div>
           <div className="logoutOptions">
-            <div className="logoutConfirm" onClick={logoutCall}>
+            <div className="logoutConfirm" onClick={logout}>
               confirm
             </div>
-            <div className="logoutCancel" onClick={userLogutCancel}>
+            <div className="logoutCancel" onClick={closeLogoutDialogue}>
               cancel
             </div>
           </div>
@@ -281,60 +128,66 @@ const Layout = () => {
         ""
       )}
 
-      <div className={`${menuOpen ? "blur" : ""}`} onClick={setMenuClose}>
-        <div className={menuOpen ? "disable-home" : ""}>
+      <div className={`${menuState ? "blur" : ""}`} onClick={closeLogoutDialogue}>
+        <div className={menuState ? "disable-home" : ""}>
           <Outlet />
         </div>
       </div>
-      <div className="footer">
-        <div className="middle-footer-content">
-          <img
-            className="recorder-icon"
-            src={recorderIcon}
-            alt="icon"
-            loading="lazy"
-          ></img>
-          movies<span className="moviesforyou">4u</span>Now
-        </div>
-        <div className="bottom-footer-content">
-          <span>
-            <NavLink
-              className="bottom-footer-link footer-text"
-              to="/termsandprivacy"
-            >
-              Terms and privacy notice
-            </NavLink>
-          </span>
-          {"   "}
-          <span>
-            <NavLink
-              className="bottom-footer-link footer-text"
-              to="/sendusfeedback"
-            >
-              Send us feedback
-            </NavLink>
-          </span>
-          {"   "}
-          <span>
-            <NavLink className="bottom-footer-link  footer-text" to="/help">
-              help
-            </NavLink>
-          </span>
-          {window.innerWidth <= 480 ? (
-            <p
-              className="footer-text"
-              style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}
-            >
-              © 2024-2024, movies4unow.online, inc. or its affiliates
-            </p>
-          ) : (
-            <span
-              className="footer-text"
-              style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}
-            >
-              © 2024-2024, movies4unow.online, inc. or its affiliates
+
+
+      <div className={`${menuState ? "blur" : ""}`}>
+        <div className="footer">
+          <div className="middle-footer-content">
+            <img
+              className="recorder-icon"
+              src={recorderIcon}
+              alt="icon"
+              loading="lazy"
+            ></img>
+            movies<span className="moviesforyou">4u</span>Now
+          </div>
+          <div className="bottom-footer-content">
+            <span>
+              <NavLink
+                className="bottom-footer-link footer-text"
+                to="/termsandprivacy"
+              >
+                Terms and privacy notice
+              </NavLink>
             </span>
-          )}
+            {"   "}
+            <span>
+              <NavLink
+                className="bottom-footer-link footer-text"
+                to="/sendusfeedback"
+              >
+                Send us feedback
+              </NavLink>
+            </span>
+            {"   "}
+            <span>
+              <NavLink className="bottom-footer-link  footer-text" to="/help">
+                help
+              </NavLink>
+            </span>
+            {window.innerWidth <= 480 ? (
+
+              <div
+                className="footer-text"
+                style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}
+              >
+                © 2024-2024, movies4unow.online, inc. or its affiliates
+              </div>
+
+            ) : (
+              <span
+                className="footer-text"
+                style={{ color: "rgb(138, 138, 138)", marginLeft: "10px" }}
+              >
+                © 2024-2024, movies4unow.online, inc. or its affiliates
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </div>
