@@ -25,7 +25,7 @@ const Signup = () => {
     if (e.target.password.value === e.target.confirmPassword.value) {
       setPasswordCheck(true);
       fetch(
-        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/clientsignup`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/user/signup`,
         {
           method: "POST",
           credentials: "include",
