@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useAccordionButton } from "react-bootstrap";
 import editIcon from "../assets/icons8-edit-48.png"
 import "./Account.css";
+import {fetchAllGenre} from "../utils/fetchAllGenre"
 
 const Account = () => {
   const [accountDetails, setAccountDetails] = useState("");
 
   useEffect(() => {
+
     const fetchAccountData = () => {
       const accoutRequest = fetch(
-        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/protected-route/clientaccount`,
+        `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/user/protected-route/useraccount`,
         {
           credentials: "include",
           headers: { "Content-Type": "application/json" },
