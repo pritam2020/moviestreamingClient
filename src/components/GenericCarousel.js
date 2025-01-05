@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import "./GenericCarousel.css";
+import ScrollArrow from "./ScrollArrow";
 
 const GenericCarousel = ({ data }) => {
   const counter = 0;
@@ -52,7 +53,7 @@ const GenericCarousel = ({ data }) => {
   const GenericSettings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: 2,
@@ -60,6 +61,7 @@ const GenericCarousel = ({ data }) => {
 
   return (
     <div className="carousel-container" style={{ marginLeft: slidesToShow===7?"30px":"5px" }}>
+      {/* <ScrollArrow className="horizontalscroll" direction="left" /> */}
       <Slider {...GenericSettings}>
         {data.map((dataArray) => {
           if (counter <= 20) {

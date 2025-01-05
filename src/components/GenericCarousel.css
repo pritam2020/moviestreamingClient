@@ -1,3 +1,4 @@
+
 @media only screen and (max-width: 480px) {
   .movieBanner {
     width: 80px;
@@ -9,11 +10,15 @@
   .link-container {
     width: 200px;
   }
+  .carousel-container{
+    position: relative;;
+  }
 }
 @media only screen and (min-width: 481px) {
   .carousel-container{
     /* width: 100%; */
     margin-right: 30px;
+    position: relative;;
   }
   .movieBanner {
     width: 150px;
