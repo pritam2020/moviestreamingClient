@@ -14,6 +14,7 @@ import { Oval } from "react-loader-spinner";
 import Loading from "../components/Loading";
 import { fetchAllGenre } from "../utils/fetchAllGenre";
 import AllMovies from "./AllMovies";
+import { all } from "three/tsl";
 
 const Home = () => {
   const [comedy, setComedy] = useState(null); // State to hold fetched data
@@ -41,51 +42,24 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Define an asynchronous function to fetch data
 
-    //fetching all the genre data and setting to the state
     const fetchData = async () => {
       try {
-        // Initialize allGenreData as an empty string
         let allGenreData = "";
 
-        // Check if allGenreDataContext (context data) is available
         if (allGenreDataContext) {
           allGenreData = allGenreDataContext;
-          console.log("Data exists in the context");
         } else {
-          // If no context data is available, fetch data from the API
-          console.log("Data does not exist in the context");
-
-          // Fetch genre data
-          const fetchedData = await fetchAllGenre();
-
-          // Check if the fetched data is an array and if it contains exactly 14 genres
-          if (Array.isArray(fetchedData) && fetchedData.length != 14) {
-            throw new Error("Error while fetching all the data...");
-          } else {
-            // Parse all the fetched data using .json() if it's valid
-            const allParsedData = fetchedData.map(async (obj) => {
-              const parsedObj = await obj.json();
-              return parsedObj;
-            });
-
-            // Await and resolve all promises to get parsed data
-            allGenreData = await Promise.all(allParsedData);
-
-            // Store the fetched genre data into the context for future use
-            setAllGenreDataContext(allGenreData);
-          }
+          allGenreData = await fetchAllGenre();
+          setAllGenreDataContext(allGenreData);
         }
 
-        // Extract individual genre data from the array (first genre is comedy, second is romance, etc.)
         const comedyarr = allGenreData[0];
         const romancearr = allGenreData[1];
         const wararr = allGenreData[2];
         const thrillerarr = allGenreData[3];
         const fantasyarr = allGenreData[4];
 
-        // Set the carousel to show the first movie from each genre
         setCarousel({
           carousel1: comedyarr[0],
           carousel2: romancearr[0],
@@ -94,7 +68,6 @@ const Home = () => {
           carousel5: fantasyarr[0],
         });
 
-        // Set state for each genre array individually
         setComedy(allGenreData[0]); // Comedy movies
         setRomance(allGenreData[1]); // Romance movies
         setWar(allGenreData[2]);     // War movies
@@ -111,17 +84,12 @@ const Home = () => {
         setScifi(allGenreData[13]);   // Sci-Fi movies
 
       } catch (error) {
-        // Catch and handle any errors during the fetching or parsing process
         setError(error);
         console.error(error); // Log the error for debugging
       } finally {
-        // Once fetching is done, set loading to false to stop the loading spinner or indicator
         setLoading(false);
       }
     };
-
-
-    //checking user session
     const checkSession = async () => {
       const session = await fetch(
         `https://${process.env.API_SERVER}:${process.env.API_SERVER_PORT}/checksession`,
@@ -139,19 +107,15 @@ const Home = () => {
       }
     };
 
-
-
-
     checkSession();
 
   }, []);
-  console.log("history stack", window.history)
   if (loading) return <Loading />;
   if (error) return <div>Error: {error.message}</div>;
   return (
     <div className="homeContainer">
 
-      <Banner carouselData={carousel} device={device.device} deviceHeight={device.deviceHeight}/>
+      <Banner carouselData={carousel} device={device.device} deviceHeight={device.deviceHeight} />
       <br />
 
       <div className="genreCarousels">
