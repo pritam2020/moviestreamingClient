@@ -5,10 +5,11 @@ import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import AllDataContextProvider from "../context/AllDataContextProvider";
 import AllDataContext from "../context/AllDataContext";
 import { useState,useContext } from 'react';
+import { use } from 'react';
 
 
-function HamburgerMenuGenre({menuOpen, setMenuOpen}) {
-
+function HamburgerMenuGenre({menuState, setMenuOpen}) {
+  
   const { allGenreDataContext, setAllGenreDataContext } = useContext(AllDataContext);
   const [isHovered, setisHovered] = useState(false);
 
@@ -18,8 +19,7 @@ function HamburgerMenuGenre({menuOpen, setMenuOpen}) {
   const handelMouseLeave = () => {
     setisHovered(false);
   };
-
-
+ 
   return (
     <div className="genreBtnContainerAndhamburgerMenuIcon-Container">
     <img
@@ -34,8 +34,8 @@ function HamburgerMenuGenre({menuOpen, setMenuOpen}) {
       onMouseEnter={handelMouseEnter}
       onMouseLeave={handelMouseLeave}
     >
-      <div className={`genreBtn${menuOpen ? "-blur" : ""}`}>Genre</div>
-      {isHovered & !menuOpen ? (
+      <div className={`genreBtn${menuState ? "-blur" : ""}`}>Genre</div>
+      {isHovered & !menuState ? (
         <div className="genreList">
           {" "}
           <ul>
