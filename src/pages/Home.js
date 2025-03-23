@@ -14,7 +14,6 @@ import { Oval } from "react-loader-spinner";
 import Loading from "../components/Loading";
 import { fetchAllGenre } from "../utils/fetchAllGenre";
 import AllMovies from "./AllMovies";
-import { all } from "three/tsl";
 
 const Home = () => {
   const [comedy, setComedy] = useState(null); // State to hold fetched data
